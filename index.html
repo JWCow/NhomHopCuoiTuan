@@ -179,6 +179,23 @@
             max-height: 200px;
             overflow-y: auto;
         }
+
+        /* Add these styles for the date input */
+        input[type="date"] {
+            position: relative;
+            cursor: pointer;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            right: 8px;
+            cursor: pointer;
+        }
+
+        input[type="date"]::-webkit-inner-spin-button,
+        input[type="date"]::-webkit-clear-button {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -188,7 +205,11 @@
         
         <div class="form-group">
             <label data-vi="📅 Ngày:" data-en="📅 Date:">📅 Ngày:</label>
-            <input type="date" id="date" required>
+            <input type="date" 
+                   id="date" 
+                   required
+                   onblur="this.blur()"
+                   onfocus="this.showPicker()">
         </div>
 
         <div class="form-group">
