@@ -2,803 +2,644 @@
   "songs": [
     {
       "number": "1",
-      "title_vi": "Các đức tính của Đức Giê-hô-va",
       "title_en": "Jehovah's Attributes"
     },
     {
       "number": "2",
-      "title_vi": "Giê-hô-va là danh Cha",
       "title_en": "Jehovah Is Your Name"
     },
     {
       "number": "3",
-      "title_vi": "Sức mạnh, hy vọng và niềm tin cậy của chúng con",
       "title_en": "Our Strength, Our Hope, Our Confidence"
     },
     {
       "number": "4",
-      "title_vi": "\"Đức Giê-hô-va là Đấng Chăn Giữ của tôi\"",
       "title_en": "\"Jehovah Is My Shepherd\""
     },
     {
       "number": "5",
-      "title_vi": "Các công việc kỳ diệu của Đức Chúa Trời",
       "title_en": "God's Wondrous Works"
     },
     {
       "number": "6",
-      "title_vi": "Bầu trời rao truyền sự vinh hiển của Đức Chúa Trời",
       "title_en": "The Heavens Declare God's Glory"
     },
     {
       "number": "7",
-      "title_vi": "Đức Giê-hô-va, ngài là sức mạnh của chúng con",
       "title_en": "Jehovah, Our Strength"
     },
     {
       "number": "8",
-      "title_vi": "Đức Giê-hô-va là nơi trú náu của chúng ta",
       "title_en": "Jehovah Is Our Refuge"
     },
     {
       "number": "9",
-      "title_vi": "Đức Giê-hô-va là Vua chúng ta!",
       "title_en": "Jehovah Is Our King!"
     },
     {
       "number": "10",
-      "title_vi": "Hãy khen ngợi Đức Giê-hô-va!",
       "title_en": "Praise Jehovah Our God!"
     },
     {
       "number": "11",
-      "title_vi": "Công trình sáng tạo ngợi khen Đức Chúa Trời",
       "title_en": "Creation Praises God"
     },
     {
       "number": "12",
-      "title_vi": "Đức Giê-hô-va, ngài thật vĩ đại",
       "title_en": "Great God, Jehovah"
     },
     {
       "number": "13",
-      "title_vi": "Đấng Ki-tô, gương mẫu của chúng ta",
       "title_en": "Christ, Our Model"
     },
     {
       "number": "14",
-      "title_vi": "Ngợi khen Vua mới của trái đất",
       "title_en": "Praising Earth's New King"
     },
     {
       "number": "15",
-      "title_vi": "Khen ngợi Con Đầu Lòng của Đức Giê-hô-va!",
       "title_en": "Praise Jehovah's Firstborn!"
     },
     {
       "number": "16",
-      "title_vi": "Ca ngợi Gia vì người Con được xức dầu của ngài",
       "title_en": "Praise Jah for His Son, the Anointed"
     },
     {
       "number": "17",
-      "title_vi": "\"Tôi muốn\"",
       "title_en": "\"I Want To\""
     },
     {
       "number": "18",
-      "title_vi": "Biết ơn về giá chuộc",
       "title_en": "Grateful for the Ransom"
     },
     {
       "number": "19",
-      "title_vi": "Bữa Ăn Tối Của Chúa",
       "title_en": "The Lord's Evening Meal"
     },
     {
       "number": "20",
-      "title_vi": "Ngài ban Con một yêu quý",
       "title_en": "You Gave Your Precious Son"
     },
     {
       "number": "21",
-      "title_vi": "Hãy luôn tìm kiếm Nước Trời trước hết",
       "title_en": "Keep On Seeking First the Kingdom"
     },
     {
       "number": "22",
-      "title_vi": "Nước Trời đang cai trị—Xin Nước ấy được đến!",
       "title_en": "The Kingdom Is in Place—Let It Come!"
     },
     {
       "number": "23",
-      "title_vi": "Đức Giê-hô-va bắt đầu sự trị vì của ngài",
       "title_en": "Jehovah Begins His Rule"
     },
     {
       "number": "24",
-      "title_vi": "Hãy lên núi của Đức Giê-hô-va",
       "title_en": "Come to Jehovah's Mountain"
     },
     {
       "number": "25",
-      "title_vi": "Một sản nghiệp đặc biệt",
       "title_en": "A Special Possession"
     },
     {
       "number": "26",
-      "title_vi": "Ngươi đã làm điều ấy cho ta",
       "title_en": "You Did It for Me"
     },
     {
       "number": "27",
-      "title_vi": "Các con của Đức Chúa Trời được tỏ lộ",
       "title_en": "The Revealing of God's Sons"
     },
     {
       "number": "28",
-      "title_vi": "Để được làm bạn với Đức Giê-hô-va",
       "title_en": "Gaining Jehovah's Friendship"
     },
     {
       "number": "29",
-      "title_vi": "Sống xứng đáng với danh hiệu Cha ban cho",
       "title_en": "Living Up to Our Name"
     },
     {
       "number": "30",
-      "title_vi": "Ngài là Cha, là Đức Chúa Trời và là Bạn tôi",
       "title_en": "My Father, My God and Friend"
     },
     {
       "number": "31",
-      "title_vi": "Hãy bước đi với Đức Chúa Trời!",
       "title_en": "Oh, Walk With God!"
     },
     {
       "number": "32",
-      "title_vi": "Hãy đứng về phía Đức Giê-hô-va!",
       "title_en": "Take Sides With Jehovah!"
     },
     {
       "number": "33",
-      "title_vi": "Hãy trút gánh nặng cho Đức Giê-hô-va",
       "title_en": "Throw Your Burden on Jehovah"
     },
     {
       "number": "34",
-      "title_vi": "Bước theo sự trọn thành",
       "title_en": "Walking in Integrity"
     },
     {
       "number": "35",
-      "title_vi": "\"Nhận biết những điều quan trọng hơn\"",
       "title_en": "\"Make Sure of the More Important Things\""
     },
     {
       "number": "36",
-      "title_vi": "Hãy bảo vệ lòng mình",
       "title_en": "We Guard Our Hearts"
     },
     {
       "number": "37",
-      "title_vi": "Phụng sự Đức Giê-hô-va hết mình",
       "title_en": "Serving Jehovah Whole-Souled"
     },
     {
       "number": "38",
-      "title_vi": "Ngài sẽ làm chúng ta mạnh mẽ",
       "title_en": "He Will Make You Strong"
     },
     {
       "number": "39",
-      "title_vi": "Tạo danh tiếng tốt trước mắt Chúa",
       "title_en": "Make a Good Name With God"
     },
     {
       "number": "40",
-      "title_vi": "Chúng ta thuộc về ai?",
       "title_en": "To Whom Do We Belong?"
     },
     {
       "number": "41",
-      "title_vi": "Xin nghe lời cầu nguyện của con",
       "title_en": "Please Hear My Prayer"
     },
     {
       "number": "42",
-      "title_vi": "Lời cầu nguyện của tôi tớ Đức Chúa Trời",
       "title_en": "The Prayer of God's Servant"
     },
     {
       "number": "43",
-      "title_vi": "Lời cầu nguyện tạ ơn",
       "title_en": "A Prayer of Thanks"
     },
     {
       "number": "44",
-      "title_vi": "Lời cầu nguyện của người khốn cùng",
       "title_en": "A Prayer of the Lowly One"
     },
     {
       "number": "45",
-      "title_vi": "Sự suy ngẫm của lòng con",
       "title_en": "The Meditation of My Heart"
     },
     {
       "number": "46",
-      "title_vi": "Cảm tạ Cha Giê-hô-va",
       "title_en": "We Thank You, Jehovah"
     },
     {
       "number": "47",
-      "title_vi": "Hãy cầu nguyện với Cha Giê-hô-va hằng ngày",
       "title_en": "Pray to Jehovah Each Day"
     },
     {
       "number": "48",
-      "title_vi": "Hằng ngày bước đi với Đức Giê-hô-va",
       "title_en": "Daily Walking With Jehovah"
     },
     {
       "number": "49",
-      "title_vi": "Làm Cha Giê-hô-va vui lòng",
       "title_en": "Making Jehovah's Heart Glad"
     },
     {
       "number": "50",
-      "title_vi": "Lời cầu nguyện dâng mình",
       "title_en": "My Prayer of Dedication"
     },
     {
       "number": "51",
-      "title_vi": "Chúng ta dâng mình cho Đức Chúa Trời!",
       "title_en": "To God We Are Dedicated!"
     },
     {
       "number": "52",
-      "title_vi": "Sự dâng mình của môn đồ Đấng Ki-tô",
       "title_en": "Christian Dedication"
     },
     {
       "number": "53",
-      "title_vi": "Chuẩn bị đi rao giảng",
       "title_en": "Preparing to Preach"
     },
     {
       "number": "54",
-      "title_vi": "\"Đây là đường\"",
       "title_en": "\"This Is the Way\""
     },
     {
       "number": "55",
-      "title_vi": "Đừng sợ chúng!",
       "title_en": "Fear Them Not!"
     },
     {
       "number": "56",
-      "title_vi": "Tự chọn bước theo Đức Chúa Trời",
       "title_en": "Make the Truth Your Own"
     },
     {
       "number": "57",
-      "title_vi": "Rao giảng cho mọi loại người",
       "title_en": "Preaching to All Sorts of People"
     },
     {
       "number": "58",
-      "title_vi": "Tìm kiếm người yêu chuộng sự bình an",
       "title_en": "Searching for Friends of Peace"
     },
     {
       "number": "59",
-      "title_vi": "Hãy cùng tôi ngợi khen Đức Giê-hô-va",
       "title_en": "Praise Jah With Me"
     },
     {
       "number": "60",
-      "title_vi": "Thông điệp mang lại sự sống",
       "title_en": "It Means Their Life"
     },
     {
       "number": "61",
-      "title_vi": "Hỡi các Nhân Chứng, hãy tiến lên!",
       "title_en": "Forward, You Witnesses!"
     },
     {
       "number": "62",
-      "title_vi": "Bài ca mới",
       "title_en": "The New Song"
     },
     {
       "number": "63",
-      "title_vi": "Chúng ta là Nhân Chứng Giê-hô-va!",
       "title_en": "We're Jehovah's Witnesses!"
     },
     {
       "number": "64",
-      "title_vi": "Vui mừng tham gia mùa gặt",
       "title_en": "Sharing Joyfully in the Harvest"
     },
     {
       "number": "65",
-      "title_vi": "Hãy tấn tới!",
       "title_en": "Move Ahead!"
     },
     {
       "number": "66",
-      "title_vi": "Hãy rao truyền tin mừng",
       "title_en": "Declare the Good News"
     },
     {
       "number": "67",
-      "title_vi": "\"Hãy rao giảng lời Đức Chúa Trời\"",
       "title_en": "\"Preach the Word\""
     },
     {
       "number": "68",
-      "title_vi": "Gieo hạt giống Nước Trời",
       "title_en": "Sowing Kingdom Seed"
     },
     {
       "number": "69",
-      "title_vi": "Hãy tiến lên loan báo về Nước Trời!",
       "title_en": "Go Forward in Preaching the Kingdom!"
     },
     {
       "number": "70",
-      "title_vi": "Tìm kiếm những người xứng đáng",
       "title_en": "Search Out Deserving Ones"
     },
     {
       "number": "71",
-      "title_vi": "Chúng ta là đạo quân của Đức Giê-hô-va!",
       "title_en": "We Are Jehovah's Army!"
     },
     {
       "number": "72",
-      "title_vi": "Rao truyền chân lý",
       "title_en": "Making Known the Kingdom Truth"
     },
     {
       "number": "73",
-      "title_vi": "Xin giúp chúng con dạn dĩ",
       "title_en": "Grant Us Boldness"
     },
     {
       "number": "74",
-      "title_vi": "Hãy cùng hát bài ca Nước Trời!",
       "title_en": "Join in the Kingdom Song!"
     },
     {
       "number": "75",
-      "title_vi": "\"Có con đây! Xin sai con!\"",
       "title_en": "\"Here I Am! Send Me!\""
     },
     {
       "number": "76",
-      "title_vi": "Lòng bạn cảm thấy làm sao?",
       "title_en": "How Does It Make You Feel?"
     },
     {
       "number": "77",
-      "title_vi": "Ánh sáng trong thế gian tăm tối",
       "title_en": "Light in a Darkened World"
     },
     {
       "number": "78",
-      "title_vi": "\"Dạy lời Đức Chúa Trời\"",
       "title_en": "\"Teaching the Word of God\""
     },
     {
       "number": "79",
-      "title_vi": "Xin Cha giúp chiên vững vàng",
       "title_en": "Teach Them to Stand Firm"
     },
     {
       "number": "80",
-      "title_vi": "\"Nếm thử và nghiệm thấy Đức Giê-hô-va tốt thay!\"",
       "title_en": "\"Taste and See That Jehovah Is Good\""
     },
     {
       "number": "81",
-      "title_vi": "Đời sống của người tiên phong",
       "title_en": "The Life of a Pioneer"
     },
     {
       "number": "82",
-      "title_vi": "\"Hãy chiếu ánh sáng của anh em\"",
       "title_en": "\"Let Your Light Shine\""
     },
     {
       "number": "83",
-      "title_vi": "\"Từ nhà này sang nhà kia\"",
       "title_en": "\"From House to House\""
     },
     {
       "number": "84",
-      "title_vi": "Phụng sự ở nơi có nhu cầu",
       "title_en": "Reaching Out"
     },
     {
       "number": "85",
-      "title_vi": "Hãy tiếp đón nhau",
       "title_en": "Welcome One Another"
     },
     {
       "number": "86",
-      "title_vi": "Hãy để Đức Giê-hô-va dạy dỗ",
       "title_en": "We Must Be Taught"
     },
     {
       "number": "87",
-      "title_vi": "Hãy đến để được tươi tỉnh!",
       "title_en": "Come! Be Refreshed"
     },
     {
       "number": "88",
-      "title_vi": "Xin dạy con biết đường lối Cha",
       "title_en": "Make Me Know Your Ways"
     },
     {
       "number": "89",
-      "title_vi": "Nghe và giữ Lời Chúa sẽ được ban phước",
       "title_en": "Listen, Obey, and Be Blessed"
     },
     {
       "number": "90",
-      "title_vi": "Hãy khuyến khích nhau",
       "title_en": "Encourage One Another"
     },
     {
       "number": "91",
-      "title_vi": "Công việc của tình yêu thương",
       "title_en": "Our Labor of Love"
     },
     {
       "number": "92",
-      "title_vi": "Một nơi mang danh Cha",
       "title_en": "A Place Bearing Your Name"
     },
     {
       "number": "93",
-      "title_vi": "Xin Cha ban phước cho buổi nhóm họp",
       "title_en": "Bless Our Meeting Together"
     },
     {
       "number": "94",
-      "title_vi": "Biết ơn Đức Chúa Trời vì đã ban Lời ngài",
       "title_en": "Grateful for God's Word"
     },
     {
       "number": "95",
-      "title_vi": "Ánh sáng càng sáng thêm",
       "title_en": "The Light Gets Brighter"
     },
     {
       "number": "96",
-      "title_vi": "Cuốn sách của Đức Chúa Trời—Kho tàng vô giá",
       "title_en": "God's Own Book—A Treasure"
     },
     {
       "number": "97",
-      "title_vi": "Sự sống tùy thuộc vào Lời Đức Chúa Trời",
       "title_en": "Life Depends on God's Word"
     },
     {
       "number": "98",
-      "title_vi": "Kinh Thánh—Bởi Đức Chúa Trời soi dẫn",
       "title_en": "The Scriptures—Inspired of God"
     },
     {
       "number": "99",
-      "title_vi": "Hằng hà sa số anh em",
       "title_en": "Myriads of Brothers"
     },
     {
       "number": "100",
-      "title_vi": "Hãy bày tỏ lòng hiếu khách",
       "title_en": "Receive Them With Hospitality"
     },
     {
       "number": "101",
-      "title_vi": "Cùng hợp nhất phụng sự",
       "title_en": "Working Together in Unity"
     },
     {
       "number": "102",
-      "title_vi": "\"Giúp đỡ những người yếu đuối\"",
       "title_en": "\"Assist Those Who Are Weak\""
     },
     {
       "number": "103",
-      "title_vi": "Những anh chăn bầy—Món quà từ Đức Chúa Trời",
       "title_en": "Shepherds—Gifts in Men"
     },
     {
       "number": "104",
-      "title_vi": "Thần khí—Món quà từ Đức Chúa Trời",
       "title_en": "God's Gift of Holy Spirit"
     },
     {
       "number": "105",
-      "title_vi": "\"Đức Chúa Trời là tình yêu thương\"",
       "title_en": "\"God Is Love\""
     },
     {
       "number": "106",
-      "title_vi": "Trau dồi đức tính yêu thương",
       "title_en": "Cultivating the Quality of Love"
     },
     {
       "number": "107",
-      "title_vi": "Gương mẫu yêu thương của Đức Chúa Trời",
       "title_en": "The Divine Pattern of Love"
     },
     {
       "number": "108",
-      "title_vi": "Tình yêu thương thành tín của Đức Chúa Trời",
       "title_en": "God's Loyal Love"
     },
     {
       "number": "109",
-      "title_vi": "Hãy tha thiết yêu thương từ đáy lòng",
       "title_en": "Love Intensely From the Heart"
     },
     {
       "number": "110",
-      "title_vi": "\"Niềm vui của Đức Giê-hô-va\"",
       "title_en": "\"The Joy of Jehovah\""
     },
     {
       "number": "111",
-      "title_vi": "Những lý do khiến chúng ta vui mừng",
       "title_en": "Our Reasons for Joy"
     },
     {
       "number": "112",
-      "title_vi": "Giê-hô-va là Đức Chúa Trời bình an",
       "title_en": "Jehovah, God of Peace"
     },
     {
       "number": "113",
-      "title_vi": "Sự bình an của dân Đức Chúa Trời",
       "title_en": "Our Possession of Peace"
     },
     {
       "number": "114",
-      "title_vi": "\"Hãy kiên nhẫn\"",
       "title_en": "\"Exercise Patience\""
     },
     {
       "number": "115",
-      "title_vi": "Biết ơn Đức Chúa Trời vì sự kiên nhẫn của ngài",
       "title_en": "Gratitude for Divine Patience"
     },
     {
       "number": "116",
-      "title_vi": "Sức mạnh của lòng nhân từ",
       "title_en": "The Power of Kindness"
     },
     {
       "number": "117",
-      "title_vi": "Hãy tập thể hiện sự tốt lành",
       "title_en": "The Quality of Goodness"
     },
     {
       "number": "118",
-      "title_vi": "'Xin cho chúng con thêm đức tin'",
       "title_en": "\"Give Us More Faith\""
     },
     {
       "number": "119",
-      "title_vi": "Chúng ta phải có đức tin",
       "title_en": "We Must Have Faith"
     },
     {
       "number": "120",
-      "title_vi": "Noi theo tính ôn hòa của Đấng Ki-tô",
       "title_en": "Imitate Christ's Mildness"
     },
     {
       "number": "121",
-      "title_vi": "Chúng ta cần có tính tự chủ",
       "title_en": "We Need Self-Control"
     },
     {
       "number": "122",
-      "title_vi": "Hãy kiên định, không lay chuyển!",
       "title_en": "Be Steadfast, Immovable!"
     },
     {
       "number": "123",
-      "title_vi": "Trung thành phục tùng sự sắp đặt thần quyền",
       "title_en": "Loyally Submitting to Theocratic Order"
     },
     {
       "number": "124",
-      "title_vi": "Luôn trung thành",
       "title_en": "Ever Loyal"
     },
     {
       "number": "125",
-      "title_vi": "'Hạnh phúc cho người có lòng thương xót!'",
       "title_en": "\"Happy Are the Merciful!\""
     },
     {
       "number": "126",
-      "title_vi": "Hãy luôn tỉnh thức, đứng vững và mạnh mẽ",
       "title_en": "Stay Awake, Stand Firm, Grow Mighty"
     },
     {
       "number": "127",
-      "title_vi": "Tôi xem mình thuộc loại người nào",
       "title_en": "The Sort of Person I Should Be"
     },
     {
       "number": "128",
-      "title_vi": "Bền chí chịu đựng cho đến cuối cùng",
       "title_en": "Enduring to the End"
     },
     {
       "number": "129",
-      "title_vi": "Chúng ta sẽ tiếp tục chịu đựng",
       "title_en": "We Will Keep Enduring"
     },
     {
       "number": "130",
-      "title_vi": "Hãy tha thứ",
       "title_en": "Be Forgiving"
     },
     {
       "number": "131",
-      "title_vi": "Cuộc hôn nhân do Chúa tác hợp",
       "title_en": "\"What God Has Yoked Together\""
     },
     {
       "number": "132",
-      "title_vi": "Từ nay chúng ta là một",
       "title_en": "Now We Are One"
     },
     {
       "number": "133",
-      "title_vi": "Thờ phượng Đức Giê-hô-va trong thời thanh xuân",
       "title_en": "Worship Jehovah During Youth"
     },
     {
       "number": "134",
-      "title_vi": "Con cái là sản nghiệp từ Đức Chúa Trời",
       "title_en": "Children Are a Trust From God"
     },
     {
       "number": "135",
-      "title_vi": "Đức Giê-hô-va mến gọi: 'Hỡi con, hãy khôn ngoan!'",
       "title_en": "Jehovah's Warm Appeal: \"Be Wise, My Son\""
     },
     {
       "number": "136",
-      "title_vi": "\"Phần thưởng trọn vẹn\" từ Đức Giê-hô-va",
       "title_en": "\"A Perfect Wage\" From Jehovah"
     },
     {
       "number": "137",
-      "title_vi": "Những người nữ trung thành",
       "title_en": "Faithful Women, Christian Sisters"
     },
     {
       "number": "138",
-      "title_vi": "Tóc bạc là sự vinh hiển",
       "title_en": "Beauty in Gray-Headedness"
     },
     {
       "number": "139",
-      "title_vi": "Hình dung cuộc sống bạn trong thế giới mới",
       "title_en": "See Yourself When All Is New"
     },
     {
       "number": "140",
-      "title_vi": "Sự sống vĩnh cửu là đây!",
       "title_en": "Life Without End—At Last!"
     },
     {
       "number": "141",
-      "title_vi": "Điều kỳ diệu của sự sống",
       "title_en": "The Miracle of Life"
     },
     {
       "number": "142",
-      "title_vi": "Nắm chặt hy vọng của chúng ta",
       "title_en": "Holding Fast to Our Hope"
     },
     {
       "number": "143",
-      "title_vi": "Hãy luôn bận rộn, thức canh và trông đợi",
       "title_en": "Keep Working, Watching, and Waiting"
     },
     {
       "number": "144",
-      "title_vi": "Hãy đặt phần thưởng trước mặt luôn!",
       "title_en": "Keep Your Eyes on the Prize!"
     },
     {
       "number": "145",
-      "title_vi": "Lời hứa của Đức Chúa Trời về địa đàng",
       "title_en": "God's Promise of Paradise"
     },
     {
       "number": "146",
-      "title_vi": "\"Làm mọi vật nên mới\"",
       "title_en": "\"Making All Things New\""
     },
     {
       "number": "147",
-      "title_vi": "Sự sống vĩnh cửu được hứa trước",
       "title_en": "Life Everlasting Is Promised"
     },
     {
       "number": "148",
-      "title_vi": "Đức Giê-hô-va cung cấp sự giải cứu",
       "title_en": "Jehovah Provides Escape"
     },
     {
       "number": "149",
-      "title_vi": "Bài ca chiến thắng",
       "title_en": "A Victory Song"
     },
     {
       "number": "150",
-      "title_vi": "Hãy tìm kiếm Đức Chúa Trời để được cứu rỗi",
       "title_en": "Seek God for Your Deliverance"
     },
     {
       "number": "151",
-      "title_vi": "Chúa sẽ gọi",
       "title_en": "He Will Call"
     },
     {
       "number": "152",
-      "title_vi": "Một nơi mang lại ngợi khen cho Cha",
       "title_en": "A Place That Will Bring You Praise"
     },
     {
       "number": "153",
-      "title_vi": "Xin ban cho con lòng can đảm",
       "title_en": "Give Me Courage"
     },
     {
       "number": "154",
-      "title_vi": "Tình yêu thương tồn tại mãi",
       "title_en": "Unfailing Love"
     },
     {
       "number": "155",
-      "title_vi": "Nguồn sướng vui đến muôn đời",
       "title_en": "Our Joy Eternally"
     },
     {
       "number": "156",
-      "title_vi": "Mắt đức tin",
       "title_en": "With Eyes of Faith"
     },
     {
       "number": "157",
-      "title_vi": "Bình an mãi mãi!",
       "title_en": "Peace at Last!"
     },
     {
       "number": "158",
-      "title_vi": "Sẽ không chậm trễ!",
       "title_en": "\"It Will Not Be Late!\""
     },
     {
       "number": "159",
-      "title_vi": "Hãy tôn vinh Đức Giê-hô-va",
       "title_en": "Give Jehovah Glory"
     },
     {
       "number": "160",
-      "title_vi": "\"Tin mừng!\"",
       "title_en": "\"Good News\"!"
     }
   ]
-} 
+}
+
