@@ -214,7 +214,16 @@
 
         <div class="form-group">
             <label data-vi="🎵 Bài hát mở đầu số:" data-en="🎵 Opening Song Number:">🎵 Bài hát mở đầu số:</label>
-            <input type="number" id="songNumber" required>
+            <input type="text" 
+                   id="songSearch" 
+                   list="songList"
+                   placeholder="Tìm bài hát..."
+                   onchange="handleSongSearch(this.value)"
+                   required>
+            <input type="hidden" id="songNumber">
+            <datalist id="songList">
+                <!-- Will be populated by JavaScript -->
+            </datalist>
         </div>
 
         <div class="form-group">
@@ -424,6 +433,7 @@ ${t.thanks}`;
 
         let outlines = []; // Will store the outline database
         let congregations = []; // Will store the congregations database
+        let songs = []; // Will store the songs database
 
         // Function to load the outline database
         async function loadOutlines() {
@@ -446,6 +456,18 @@ ${t.thanks}`;
                 populateCongregationsList();
             } catch (error) {
                 console.error('Error loading congregations:', error);
+            }
+        }
+
+        // Function to load the songs database
+        async function loadSongs() {
+            try {
+                const response = await fetch('songs.json');
+                const data = await response.json();
+                songs = data.songs;
+                populateSongsList();
+            } catch (error) {
+                console.error('Error loading songs:', error);
             }
         }
 
@@ -498,6 +520,22 @@ ${t.thanks}`;
             });
         }
 
+        // Function to populate the songs datalist
+        function populateSongsList() {
+            const songList = document.getElementById('songList');
+            
+            // Clear existing options
+            songList.innerHTML = '';
+            
+            // Add song options
+            songs.forEach(song => {
+                const option = document.createElement('option');
+                option.value = song.number;
+                option.textContent = `${song.number.padStart(3, '0')} - ${song.title}`;
+                songList.appendChild(option);
+            });
+        }
+
         // Function to handle outline input
         function handleOutlineInput(value) {
             const outline = outlines.find(o => o.number.toString() === value);
@@ -542,10 +580,19 @@ ${t.thanks}`;
             }
         }
 
-        // Load outlines and congregations when the page loads
+        // Function to handle song search
+        function handleSongSearch(value) {
+            const song = songs.find(s => s.number === value);
+            if (song) {
+                document.getElementById('songNumber').value = song.number;
+            }
+        }
+
+        // Load outlines, congregations, and songs when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             loadOutlines();
             loadCongregations();
+            loadSongs();
         });
     </script>
 </body>
