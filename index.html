@@ -356,11 +356,28 @@
                 currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
             document.getElementById('nextOutlineSearch').placeholder = 
                 currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
+            document.getElementById('songSearch').placeholder = 
+                currentLanguage === 'vi' ? 'Tìm bài hát...' : 'Search for song...';
 
             // Update select options
             document.querySelectorAll('option[data-vi]').forEach(option => {
                 option.textContent = option.getAttribute(`data-${currentLanguage}`);
             });
+
+            // Refresh songs and outlines lists with new language
+            populateSongsList();
+            populateOutlineLists();
+
+            // Update outline titles if they exist
+            const outlineNumber = document.getElementById('outlineNumber').value;
+            const nextOutlineNumber = document.getElementById('nextOutlineNumber').value;
+            
+            if (outlineNumber) {
+                handleOutlineSearch(outlineNumber);
+            }
+            if (nextOutlineNumber) {
+                handleNextOutlineSearch(nextOutlineNumber);
+            }
 
             // Regenerate message if preview exists
             const preview = document.getElementById('preview');
@@ -378,6 +395,8 @@
             const t = translations[currentLanguage];
             const date = formatDate(document.getElementById('date').value);
             const songNumber = document.getElementById('songNumber').value;
+            const song = songs.find(s => s.number === songNumber);
+            const songTitle = song ? (currentLanguage === 'vi' ? song.title_vi : song.title_en) : '';
             const outlineNumber = document.getElementById('outlineNumber').value;
             const talkTitle = document.getElementById('talkTitle').value;
             const speaker = document.getElementById('speaker').value;
@@ -393,7 +412,7 @@
 
 ${t.meetingDate} ${date} ${t.has}:
 
-${t.openingSong} ${songNumber}
+${t.openingSong} ${songNumber} - "${songTitle}"
 
 ${t.talkTitle}
 "${outlineNumber} ${talkTitle}"
@@ -432,19 +451,48 @@ ${t.thanks}`;
         document.getElementById('date').valueAsDate = new Date();
 
         let outlines = []; // Will store the outline database
+        let outlines_en = []; // Will store the English outline database
         let congregations = []; // Will store the congregations database
         let songs = []; // Will store the songs database
 
-        // Function to load the outline database
+        // Function to load outlines
         async function loadOutlines() {
             try {
                 const response = await fetch('outlines.json');
                 const data = await response.json();
                 outlines = data.outlines;
-                populateOutlinesList();
+                
+                const response_en = await fetch('outlines_en.json');
+                const data_en = await response_en.json();
+                outlines_en = data_en.outlines;
+                
+                // Initialize outline lists
+                populateOutlineLists();
             } catch (error) {
                 console.error('Error loading outlines:', error);
             }
+        }
+
+        // Function to populate outline lists
+        function populateOutlineLists() {
+            const outlineList = document.getElementById('outlineList');
+            const nextOutlineList = document.getElementById('nextOutlineList');
+            
+            // Clear existing options
+            outlineList.innerHTML = '';
+            nextOutlineList.innerHTML = '';
+            
+            // Get current outlines based on language
+            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
+            
+            // Add outline options
+            currentOutlines.forEach(outline => {
+                const option = document.createElement('option');
+                option.value = outline.number;
+                option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
+                outlineList.appendChild(option.cloneNode(true));
+                nextOutlineList.appendChild(option);
+            });
         }
 
         // Function to load the congregations database
@@ -469,31 +517,6 @@ ${t.thanks}`;
             } catch (error) {
                 console.error('Error loading songs:', error);
             }
-        }
-
-        // Function to populate the outline selects
-        function populateOutlinesList() {
-            const outlineList = document.getElementById('outlineList');
-            const nextOutlineList = document.getElementById('nextOutlineList');
-            
-            // Clear existing options
-            outlineList.innerHTML = '';
-            nextOutlineList.innerHTML = '';
-            
-            // Add outline options
-            outlines.forEach(outline => {
-                // For the first outline datalist
-                const option = document.createElement('option');
-                option.value = outline.number;
-                option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
-                outlineList.appendChild(option);
-                
-                // For the next week's outline datalist
-                const nextOption = document.createElement('option');
-                nextOption.value = outline.number;
-                nextOption.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
-                nextOutlineList.appendChild(nextOption);
-            });
         }
 
         // Function to populate the congregation select
@@ -531,14 +554,27 @@ ${t.thanks}`;
             songs.forEach(song => {
                 const option = document.createElement('option');
                 option.value = song.number;
-                option.textContent = `${song.number.padStart(3, '0')} - ${song.title}`;
+                const title = currentLanguage === 'vi' ? song.title_vi : song.title_en;
+                option.textContent = `${song.number.padStart(3, '0')} - ${title}`;
                 songList.appendChild(option);
             });
+
+            // Update any existing song display if there's a selected song
+            const songNumber = document.getElementById('songNumber').value;
+            if (songNumber) {
+                const song = songs.find(s => s.number === songNumber);
+                if (song) {
+                    const songSearch = document.getElementById('songSearch');
+                    const title = currentLanguage === 'vi' ? song.title_vi : song.title_en;
+                    songSearch.value = `${song.number.padStart(3, '0')} - ${title}`;
+                }
+            }
         }
 
         // Function to handle outline input
         function handleOutlineInput(value) {
-            const outline = outlines.find(o => o.number.toString() === value);
+            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
+            const outline = currentOutlines.find(o => o.number.toString() === value);
             const talkTitleInput = document.getElementById('talkTitle');
             
             if (outline) {
@@ -550,7 +586,8 @@ ${t.thanks}`;
 
         // Function to handle next outline search
         function handleNextOutlineSearch(value) {
-            const outline = outlines.find(o => o.number === value);
+            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
+            const outline = currentOutlines.find(o => o.number === value);
             if (outline) {
                 document.getElementById('nextOutlineNumber').value = outline.number;
                 document.getElementById('nextTalkTitle').value = outline.title;
@@ -573,7 +610,8 @@ ${t.thanks}`;
 
         // Function to handle outline search
         function handleOutlineSearch(value) {
-            const outline = outlines.find(o => o.number === value);
+            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
+            const outline = currentOutlines.find(o => o.number === value);
             if (outline) {
                 document.getElementById('outlineNumber').value = outline.number;
                 document.getElementById('talkTitle').value = outline.title;
@@ -582,9 +620,15 @@ ${t.thanks}`;
 
         // Function to handle song search
         function handleSongSearch(value) {
-            const song = songs.find(s => s.number === value);
+            // Extract song number from the selection (handles both number-only and full title formats)
+            const songNumber = value.split(' - ')[0].trim().replace(/^0+/, '');
+            const song = songs.find(s => s.number === songNumber);
             if (song) {
                 document.getElementById('songNumber').value = song.number;
+                // Update the input to show the full title in current language
+                const songSearch = document.getElementById('songSearch');
+                const title = currentLanguage === 'vi' ? song.title_vi : song.title_en;
+                songSearch.value = `${song.number.padStart(3, '0')} - ${title}`;
             }
         }
 
