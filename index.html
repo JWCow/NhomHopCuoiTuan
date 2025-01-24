@@ -452,12 +452,17 @@ ${t.thanks}`;
         // Function to populate the congregation select
         function populateCongregationsList() {
             const congregationSelect = document.getElementById('congregationSelect');
+            
+            // Keep the first two options (placeholder and custom)
+            const placeholder = congregationSelect.querySelector('option[value=""]');
             const customOption = congregationSelect.querySelector('option[value="custom"]');
             
-            // Clear all options except the first two (placeholder and custom)
+            // Clear all options
             congregationSelect.innerHTML = '';
-            congregationSelect.appendChild(congregationSelect.firstElementChild); // placeholder
-            congregationSelect.appendChild(customOption); // custom option
+            
+            // Add back placeholder and custom options
+            if (placeholder) congregationSelect.appendChild(placeholder);
+            if (customOption) congregationSelect.appendChild(customOption);
             
             // Add congregation options
             congregations.forEach(congregation => {
@@ -495,7 +500,6 @@ ${t.thanks}`;
         // Function to handle congregation selection change
         function handleCongregationChange(value) {
             const congregationInput = document.getElementById('congregation');
-            const congregationSelect = document.getElementById('congregationSelect');
             
             if (value === 'custom') {
                 congregationInput.style.display = 'block';
@@ -503,7 +507,7 @@ ${t.thanks}`;
                 congregationInput.focus();
             } else {
                 congregationInput.style.display = 'none';
-                congregationInput.value = value;
+                congregationInput.value = value || '';  // Handle empty selection
             }
         }
 
