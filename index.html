@@ -202,7 +202,9 @@
                    id="outlineSearch" 
                    list="outlineList"
                    placeholder="Tìm số dàn bài..."
-                   onchange="handleOutlineSearch(this.value)">
+                   onchange="handleOutlineSearch(this.value)"
+                   required>
+            <input type="hidden" id="outlineNumber">
             <datalist id="outlineList">
                 <!-- Will be populated by JavaScript -->
             </datalist>
@@ -421,13 +423,29 @@ ${t.thanks}`;
         // Function to populate the outline selects
         function populateOutlinesList() {
             const outlineList = document.getElementById('outlineList');
+            const nextOutlineSelect = document.getElementById('nextOutlineNumber');
+            
+            // Clear existing options
             outlineList.innerHTML = '';
             
+            // Keep the first option for nextOutlineSelect
+            const placeholder = nextOutlineSelect.firstElementChild;
+            nextOutlineSelect.innerHTML = '';
+            nextOutlineSelect.appendChild(placeholder);
+            
+            // Add outline options
             outlines.forEach(outline => {
+                // For the datalist
                 const option = document.createElement('option');
                 option.value = outline.number;
                 option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
                 outlineList.appendChild(option);
+                
+                // For the next week's outline dropdown
+                const nextOption = document.createElement('option');
+                nextOption.value = outline.number;
+                nextOption.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
+                nextOutlineSelect.appendChild(nextOption);
             });
         }
 
@@ -494,7 +512,7 @@ ${t.thanks}`;
             const outline = outlines.find(o => o.number === value);
             if (outline) {
                 document.getElementById('outlineNumber').value = outline.number;
-                handleOutlineInput(outline.number);
+                document.getElementById('talkTitle').value = outline.title;
             }
         }
 
