@@ -129,6 +129,41 @@
         .language-toggle:hover {
             background-color: var(--button-hover);
         }
+
+        /* Remove the custom outline input styles */
+        .outline-input-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .outline-input {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Remove the custom arrow */
+        .outline-input-container::after {
+            display: none;
+        }
+
+        /* Style for datalist options */
+        input::-webkit-calendar-picker-indicator {
+            opacity: 0;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Highlight matching text */
+        .highlight {
+            background-color: var(--button-bg);
+            color: white;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -148,12 +183,18 @@
 
         <div class="form-group">
             <label data-vi="📖 Số Dàn Bài:" data-en="📖 Outline Number:">📖 Số Dàn Bài:</label>
-            <input type="text" id="outlineNumber" required>
+            <select id="outlineNumber" onchange="handleOutlineInput(this.value)" required>
+                <option value="">Chọn số dàn bài</option>
+                <!-- Will be populated by JavaScript -->
+            </select>
         </div>
 
         <div class="form-group">
             <label data-vi="📖 Bài DVCC có tựa đề:" data-en="📖 Public Talk Title:">📖 Bài DVCC có tựa đề:</label>
-            <input type="text" id="talkTitle" required>
+            <input type="text" 
+                   id="talkTitle" 
+                   readonly 
+                   required>
         </div>
 
         <div class="form-group">
@@ -176,12 +217,17 @@
 
         <div class="form-group">
             <label data-vi="📖 Số Dàn Bài tuần tới:" data-en="📖 Next Week's Outline Number:">📖 Số Dàn Bài tuần tới:</label>
-            <input type="text" id="nextOutlineNumber">
+            <select id="nextOutlineNumber" onchange="handleNextOutlineInput(this.value)">
+                <option value="">Chọn số dàn bài</option>
+                <!-- Will be populated by JavaScript -->
+            </select>
         </div>
 
         <div class="form-group">
             <label data-vi="📖 Bài DVCC tuần tới:" data-en="📖 Next Week's Talk Title:">📖 Bài DVCC tuần tới:</label>
-            <input type="text" id="nextTalkTitle">
+            <input type="text" 
+                   id="nextTalkTitle" 
+                   readonly>
         </div>
 
         <button onclick="generateMessage()" data-vi="✨ Tạo tin nhắn" data-en="✨ Generate Message">✨ Tạo tin nhắn</button>
@@ -308,6 +354,70 @@ ${t.thanks}`;
 
         // Set today's date as default
         document.getElementById('date').valueAsDate = new Date();
+
+        let outlines = []; // Will store the outline database
+
+        // Function to load the outline database
+        async function loadOutlines() {
+            try {
+                const response = await fetch('outlines.json');
+                const data = await response.json();
+                outlines = data.outlines; // Access the nested outlines array
+                populateOutlinesList();
+            } catch (error) {
+                console.error('Error loading outlines:', error);
+            }
+        }
+
+        // Function to populate the outline selects
+        function populateOutlinesList() {
+            const outlineSelects = [
+                document.getElementById('outlineNumber'),
+                document.getElementById('nextOutlineNumber')
+            ];
+            
+            outlineSelects.forEach(select => {
+                // Keep the first option (placeholder)
+                const placeholder = select.firstElementChild;
+                select.innerHTML = '';
+                select.appendChild(placeholder);
+                
+                // Add outline options
+                outlines.forEach(outline => {
+                    const option = document.createElement('option');
+                    option.value = outline.number;
+                    option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
+                    select.appendChild(option);
+                });
+            });
+        }
+
+        // Function to handle outline input
+        function handleOutlineInput(value) {
+            const outline = outlines.find(o => o.number.toString() === value);
+            const talkTitleInput = document.getElementById('talkTitle');
+            
+            if (outline) {
+                talkTitleInput.value = outline.title;
+            } else {
+                talkTitleInput.value = '';
+            }
+        }
+
+        // Function to handle next outline input
+        function handleNextOutlineInput(value) {
+            const outline = outlines.find(o => o.number.toString() === value);
+            const nextTalkTitleInput = document.getElementById('nextTalkTitle');
+            
+            if (outline) {
+                nextTalkTitleInput.value = outline.title;
+            } else {
+                nextTalkTitleInput.value = '';
+            }
+        }
+
+        // Load outlines when the page loads
+        document.addEventListener('DOMContentLoaded', loadOutlines);
     </script>
 </body>
 </html> 
