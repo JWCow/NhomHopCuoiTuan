@@ -249,10 +249,16 @@
 
         <div class="form-group">
             <label data-vi="📖 Số Dàn Bài tuần tới:" data-en="📖 Next Week's Outline Number:">📖 Số Dàn Bài tuần tới:</label>
-            <select id="nextOutlineNumber" onchange="handleNextOutlineInput(this.value)">
-                <option value="">Chọn số dàn bài</option>
+            <input type="text" 
+                   id="nextOutlineSearch" 
+                   list="nextOutlineList"
+                   placeholder="Tìm số dàn bài..."
+                   onchange="handleNextOutlineSearch(this.value)"
+                   required>
+            <input type="hidden" id="nextOutlineNumber">
+            <datalist id="nextOutlineList">
                 <!-- Will be populated by JavaScript -->
-            </select>
+            </datalist>
         </div>
 
         <div class="form-group">
@@ -317,6 +323,8 @@
             document.getElementById('congregation').placeholder = 
                 currentLanguage === 'vi' ? 'Nhập tên hội thánh' : 'Enter congregation name';
             document.getElementById('outlineSearch').placeholder = 
+                currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
+            document.getElementById('nextOutlineSearch').placeholder = 
                 currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
 
             // Update select options
@@ -423,29 +431,25 @@ ${t.thanks}`;
         // Function to populate the outline selects
         function populateOutlinesList() {
             const outlineList = document.getElementById('outlineList');
-            const nextOutlineSelect = document.getElementById('nextOutlineNumber');
+            const nextOutlineList = document.getElementById('nextOutlineList');
             
             // Clear existing options
             outlineList.innerHTML = '';
-            
-            // Keep the first option for nextOutlineSelect
-            const placeholder = nextOutlineSelect.firstElementChild;
-            nextOutlineSelect.innerHTML = '';
-            nextOutlineSelect.appendChild(placeholder);
+            nextOutlineList.innerHTML = '';
             
             // Add outline options
             outlines.forEach(outline => {
-                // For the datalist
+                // For the first outline datalist
                 const option = document.createElement('option');
                 option.value = outline.number;
                 option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
                 outlineList.appendChild(option);
                 
-                // For the next week's outline dropdown
+                // For the next week's outline datalist
                 const nextOption = document.createElement('option');
                 nextOption.value = outline.number;
                 nextOption.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
-                nextOutlineSelect.appendChild(nextOption);
+                nextOutlineList.appendChild(nextOption);
             });
         }
 
@@ -485,15 +489,12 @@ ${t.thanks}`;
             }
         }
 
-        // Function to handle next outline input
-        function handleNextOutlineInput(value) {
-            const outline = outlines.find(o => o.number.toString() === value);
-            const nextTalkTitleInput = document.getElementById('nextTalkTitle');
-            
+        // Function to handle next outline search
+        function handleNextOutlineSearch(value) {
+            const outline = outlines.find(o => o.number === value);
             if (outline) {
-                nextTalkTitleInput.value = outline.title;
-            } else {
-                nextTalkTitleInput.value = '';
+                document.getElementById('nextOutlineNumber').value = outline.number;
+                document.getElementById('nextTalkTitle').value = outline.title;
             }
         }
 
