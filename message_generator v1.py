@@ -28,7 +28,7 @@ class MessageGenerator:
         current_row = 0
         
         # Date
-        ttk.Label(main_frame, text="Ngày:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Ngày 📅:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.date_entry = DateEntry(main_frame, width=15, background='darkblue',
                                   foreground='white', borderwidth=2, date_pattern='dd/mm/yyyy',
                                   font=('Segoe UI', 12))
@@ -36,59 +36,59 @@ class MessageGenerator:
         current_row += 1
         
         # Song number
-        ttk.Label(main_frame, text="Bài hát mở đầu số:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Bài hát mở đầu 🎵:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.song_number = ttk.Entry(main_frame, width=15, font=('Segoe UI', 12))
         self.song_number.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
         # Current talk outline and title
-        ttk.Label(main_frame, text="Số Dàn Bài:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Số Dàn Bài 📖:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.current_outline = ttk.Entry(main_frame, width=15, font=('Segoe UI', 12))
         self.current_outline.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
-        ttk.Label(main_frame, text="Bài DVCC có tựa đề:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Bài DVCC có tựa đề 📖:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.current_talk = ttk.Entry(main_frame, width=35, font=('Segoe UI', 12))
         self.current_talk.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
         # Speaker
-        ttk.Label(main_frame, text="Diễn giả:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Diễn giả 🎤:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.speaker = ttk.Entry(main_frame, width=15, font=('Segoe UI', 12))
         self.speaker.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
         # Congregation
-        ttk.Label(main_frame, text="Hội thánh:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Hội thánh 🏛️:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.congregation = ttk.Entry(main_frame, width=15, font=('Segoe UI', 12))
         self.congregation.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
         # Prayer confirmation
-        ttk.Label(main_frame, text="Cầu nguyện kết thúc?:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Cầu nguyện kết thúc 🙏:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.prayer_confirm = ttk.Combobox(main_frame, values=["Có", "Không"], width=13, state="readonly", font=('Segoe UI', 12))
         self.prayer_confirm.set("Có")
         self.prayer_confirm.grid(row=current_row, column=1, sticky=tk.W, pady=5, padx=(10, 0))
         current_row += 1
         
         # Next week talk outline and title
-        ttk.Label(main_frame, text="Số Dàn Bài tuần tới:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Số Dàn Bài tuần tới 📖:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.next_outline = ttk.Entry(main_frame, width=15, font=('Segoe UI', 12))
         self.next_outline.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
-        ttk.Label(main_frame, text="Bài DVCC tuần tới:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Bài DVCC tuần tới 📖:", font=('Segoe UI', 12)).grid(row=current_row, column=0, sticky=tk.W, pady=5)
         self.next_talk = ttk.Entry(main_frame, width=35, font=('Segoe UI', 12))
         self.next_talk.grid(row=current_row, column=1, sticky=tk.W+tk.E, pady=5, padx=(10, 0))
         current_row += 1
         
         # Generate button
-        generate_btn = ttk.Button(main_frame, text="✨ Tạo tin nhắn", command=self.generate_message, style='Generate.TButton')
+        generate_btn = ttk.Button(main_frame, text="Tạo tin nhắn ✨", command=self.generate_message, style='Generate.TButton')
         generate_btn.grid(row=current_row, column=0, columnspan=2, pady=10)
         current_row += 1
         
         # Preview area with scrollbar
-        ttk.Label(main_frame, text="👀 Xem tin nhắn trước:", font=('Segoe UI', 12, 'bold')).grid(row=current_row, column=0, columnspan=2, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Xem tin nhắn trước 👀:", font=('Segoe UI', 12, 'bold')).grid(row=current_row, column=0, columnspan=2, sticky=tk.W, pady=5)
         current_row += 1
         
         # Create a frame for the preview area and scrollbar
@@ -109,7 +109,7 @@ class MessageGenerator:
         current_row += 1
         
         # Copy button
-        copy_btn = ttk.Button(main_frame, text="📋 Sao chép tin nhắn", command=self.copy_to_clipboard, style='Copy.TButton')
+        copy_btn = ttk.Button(main_frame, text="Sao chép tin nhắn 📋", command=self.copy_to_clipboard, style='Copy.TButton')
         copy_btn.grid(row=current_row, column=0, columnspan=2, pady=5)
         
         # Configure grid columns
@@ -120,18 +120,18 @@ class MessageGenerator:
         
         message = f"""👋 Chào các anh!
 
-📅 Nhóm họp ngày {self.date_entry.get()} có:
+Nhóm họp ngày 📅 {self.date_entry.get()} có:
 
-🎵 Bài hát mở đầu số: {self.song_number.get()}
+Bài hát mở đầu số 🎵: {self.song_number.get()}
 
-📖 Bài DVCC có tựa đề:
+Bài DVCC có tựa đề 📖:
 "{self.current_outline.get()} {self.current_talk.get()}"
 
-🎤  Diễn giả: {self.speaker.get()}
-🏛️  Hội thánh: {self.congregation.get()}
-🙏  Diễn giả sẽ cầu nguyện kết thúc: {self.prayer_confirm.get()} {prayer_emoji}
+Diễn giả 🎤: {self.speaker.get()}
+Hội thánh 🏛️: {self.congregation.get()}
+Diễn giả sẽ cầu nguyện kết thúc 🙏: {self.prayer_confirm.get()} {prayer_emoji}
 
-📖 Bài DVCC cho thứ bảy tuần tới có tựa đề:
+Bài DVCC cho thứ bảy tuần tới có tựa đề 📖:
 "{self.next_outline.get()} {self.next_talk.get()}"
 
 🙏 Cảm ơn các anh."""
