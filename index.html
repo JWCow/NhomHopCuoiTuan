@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Generator</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --input-bg: #2d2d2d;
+            --input-border: #404040;
+            --button-bg: #4a4a8c;
+            --button-hover: #5a5aa6;
+            --preview-bg: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        button {
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .preview {
+            background-color: var(--preview-bg);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            min-height: 200px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--button-bg);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+            font-size: 14px;
+            width: auto;
+        }
+
+        .language-toggle:hover {
+            background-color: var(--button-hover);
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">🌐 English</button>
+    <div class="container">
+        <h1 class="title">✨ Message Generator</h1>
+        
+        <div class="form-group">
+            <label data-vi="📅 Ngày:" data-en="📅 Date:">📅 Ngày:</label>
+            <input type="date" id="date" required>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="🎵 Bài hát mở đầu số:" data-en="🎵 Opening Song Number:">🎵 Bài hát mở đầu số:</label>
+            <input type="number" id="songNumber" required>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="📖 Số Dàn Bài:" data-en="📖 Outline Number:">📖 Số Dàn Bài:</label>
+            <input type="text" id="outlineNumber" required>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="📖 Bài DVCC có tựa đề:" data-en="📖 Public Talk Title:">📖 Bài DVCC có tựa đề:</label>
+            <input type="text" id="talkTitle" required>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="🎤 Diễn giả:" data-en="🎤 Speaker:">🎤 Diễn giả:</label>
+            <input type="text" id="speaker" required>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="🏛️ Hội thánh:" data-en="🏛️ Congregation:">🏛️ Hội thánh:</label>
+            <input type="text" id="congregation" required>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="🙏 Cầu nguyện kết thúc?:" data-en="🙏 Closing Prayer?:">🙏 Cầu nguyện kết thúc?:</label>
+            <select id="prayerConfirm">
+                <option value="Có" data-vi="Có" data-en="Yes">Có</option>
+                <option value="Không" data-vi="Không" data-en="No">Không</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label data-vi="📖 Số Dàn Bài tuần tới:" data-en="📖 Next Week's Outline Number:">📖 Số Dàn Bài tuần tới:</label>
+            <input type="text" id="nextOutlineNumber">
+        </div>
+
+        <div class="form-group">
+            <label data-vi="📖 Bài DVCC tuần tới:" data-en="📖 Next Week's Talk Title:">📖 Bài DVCC tuần tới:</label>
+            <input type="text" id="nextTalkTitle">
+        </div>
+
+        <button onclick="generateMessage()" data-vi="✨ Tạo tin nhắn" data-en="✨ Generate Message">✨ Tạo tin nhắn</button>
+        <button onclick="copyToClipboard()" data-vi="📋 Sao chép tin nhắn" data-en="📋 Copy Message">📋 Sao chép tin nhắn</button>
+
+        <div class="preview" id="preview"></div>
+    </div>
+
+    <script>
+        let currentLanguage = 'vi';
+        const translations = {
+            vi: {
+                greeting: '👋 Chào các anh!',
+                meetingDate: '📅 Nhóm họp ngày',
+                has: 'có',
+                openingSong: '🎵 Bài hát mở đầu số:',
+                talkTitle: '📖 Bài DVCC có tựa đề:',
+                speaker: '🎤 Diễn giả:',
+                congregation: '🏛️ Hội thánh:',
+                closingPrayer: '🙏 Diễn giả sẽ cầu nguyện kết thúc:',
+                nextWeekTalk: '📖 Bài DVCC cho thứ bảy tuần tới có tựa đề:',
+                thanks: '🙏 Cảm ơn các anh.',
+                copyAlert: 'Vui lòng tạo tin nhắn trước khi sao chép!',
+                copySuccess: 'Đã sao chép tin nhắn vào clipboard!',
+                copyError: 'Không thể sao chép tin nhắn. Vui lòng thử lại!'
+            },
+            en: {
+                greeting: '👋 Hello brothers!',
+                meetingDate: '📅 Meeting on',
+                has: 'includes',
+                openingSong: '🎵 Opening Song Number:',
+                talkTitle: '📖 Public Talk Title:',
+                speaker: '🎤 Speaker:',
+                congregation: '🏛️ Congregation:',
+                closingPrayer: '🙏 Speaker will give closing prayer:',
+                nextWeekTalk: '📖 Next Saturday\'s Public Talk Title:',
+                thanks: '🙏 Thank you brothers.',
+                copyAlert: 'Please generate a message before copying!',
+                copySuccess: 'Message copied to clipboard!',
+                copyError: 'Could not copy message. Please try again!'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
+            const toggle = document.querySelector('.language-toggle');
+            toggle.textContent = currentLanguage === 'vi' ? '🌐 English' : '🌐 Tiếng Việt';
+            
+            // Update all labels and buttons
+            document.querySelectorAll('[data-vi]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLanguage}`);
+            });
+
+            // Update select options
+            document.querySelectorAll('option[data-vi]').forEach(option => {
+                option.textContent = option.getAttribute(`data-${currentLanguage}`);
+            });
+
+            // Regenerate message if preview exists
+            const preview = document.getElementById('preview');
+            if (preview.textContent) {
+                generateMessage();
+            }
+        }
+
+        function formatDate(date) {
+            const [year, month, day] = date.split('-');
+            return `${day}/${month}/${year}`;
+        }
+
+        function generateMessage() {
+            const t = translations[currentLanguage];
+            const date = formatDate(document.getElementById('date').value);
+            const songNumber = document.getElementById('songNumber').value;
+            const outlineNumber = document.getElementById('outlineNumber').value;
+            const talkTitle = document.getElementById('talkTitle').value;
+            const speaker = document.getElementById('speaker').value;
+            const congregation = document.getElementById('congregation').value;
+            const prayerConfirm = document.getElementById('prayerConfirm').value;
+            const nextOutlineNumber = document.getElementById('nextOutlineNumber').value;
+            const nextTalkTitle = document.getElementById('nextTalkTitle').value;
+
+            const prayerEmoji = prayerConfirm === 'Có' ? '✅' : '❌';
+            const prayerText = currentLanguage === 'vi' ? prayerConfirm : (prayerConfirm === 'Có' ? 'Yes' : 'No');
+
+            const message = `${t.greeting}
+
+${t.meetingDate} ${date} ${t.has}:
+
+${t.openingSong} ${songNumber}
+
+${t.talkTitle}
+"${outlineNumber} ${talkTitle}"
+
+${t.speaker} ${speaker}
+${t.congregation} ${congregation}
+${t.closingPrayer} ${prayerText} ${prayerEmoji}
+
+${t.nextWeekTalk}
+"${nextOutlineNumber} ${nextTalkTitle}"
+
+${t.thanks}`;
+
+            document.getElementById('preview').textContent = message;
+        }
+
+        function copyToClipboard() {
+            const preview = document.getElementById('preview');
+            const text = preview.textContent;
+            const t = translations[currentLanguage];
+            
+            if (!text) {
+                alert(t.copyAlert);
+                return;
+            }
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert(t.copySuccess);
+            }).catch(err => {
+                console.error('Copy failed:', err);
+                alert(t.copyError);
+            });
+        }
+
+        // Set today's date as default
+        document.getElementById('date').valueAsDate = new Date();
+    </script>
+</body>
+</html> 
