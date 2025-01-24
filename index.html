@@ -164,6 +164,21 @@
             padding: 0 2px;
             border-radius: 2px;
         }
+
+        .congregation-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .congregation-input select,
+        .congregation-input input {
+            flex: 1;
+        }
+
+        datalist {
+            max-height: 200px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
@@ -183,10 +198,14 @@
 
         <div class="form-group">
             <label data-vi="📖 Số Dàn Bài:" data-en="📖 Outline Number:">📖 Số Dàn Bài:</label>
-            <select id="outlineNumber" onchange="handleOutlineInput(this.value)" required>
-                <option value="">Chọn số dàn bài</option>
+            <input type="text" 
+                   id="outlineSearch" 
+                   list="outlineList"
+                   placeholder="Tìm số dàn bài..."
+                   onchange="handleOutlineSearch(this.value)">
+            <datalist id="outlineList">
                 <!-- Will be populated by JavaScript -->
-            </select>
+            </datalist>
         </div>
 
         <div class="form-group">
@@ -204,7 +223,18 @@
 
         <div class="form-group">
             <label data-vi="🏛️ Hội thánh:" data-en="🏛️ Congregation:">🏛️ Hội thánh:</label>
-            <input type="text" id="congregation" required>
+            <div class="congregation-input">
+                <select id="congregationSelect" onchange="handleCongregationChange(this.value)">
+                    <option value="">Chọn hội thánh</option>
+                    <option value="custom" data-vi="Tùy chỉnh" data-en="Custom">Tùy chỉnh</option>
+                    <!-- Will be populated by JavaScript -->
+                </select>
+                <input type="text" 
+                       id="congregation" 
+                       style="display: none;"
+                       placeholder="Nhập tên hội thánh"
+                       required>
+            </div>
         </div>
 
         <div class="form-group">
@@ -281,6 +311,12 @@
                 element.textContent = element.getAttribute(`data-${currentLanguage}`);
             });
 
+            // Update placeholders
+            document.getElementById('congregation').placeholder = 
+                currentLanguage === 'vi' ? 'Nhập tên hội thánh' : 'Enter congregation name';
+            document.getElementById('outlineSearch').placeholder = 
+                currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
+
             // Update select options
             document.querySelectorAll('option[data-vi]').forEach(option => {
                 option.textContent = option.getAttribute(`data-${currentLanguage}`);
@@ -356,39 +392,61 @@ ${t.thanks}`;
         document.getElementById('date').valueAsDate = new Date();
 
         let outlines = []; // Will store the outline database
+        let congregations = []; // Will store the congregations database
 
         // Function to load the outline database
         async function loadOutlines() {
             try {
                 const response = await fetch('outlines.json');
                 const data = await response.json();
-                outlines = data.outlines; // Access the nested outlines array
+                outlines = data.outlines;
                 populateOutlinesList();
             } catch (error) {
                 console.error('Error loading outlines:', error);
             }
         }
 
+        // Function to load the congregations database
+        async function loadCongregations() {
+            try {
+                const response = await fetch('congregations.json');
+                const data = await response.json();
+                congregations = data.congregations;
+                populateCongregationsList();
+            } catch (error) {
+                console.error('Error loading congregations:', error);
+            }
+        }
+
         // Function to populate the outline selects
         function populateOutlinesList() {
-            const outlineSelects = [
-                document.getElementById('outlineNumber'),
-                document.getElementById('nextOutlineNumber')
-            ];
+            const outlineList = document.getElementById('outlineList');
+            outlineList.innerHTML = '';
             
-            outlineSelects.forEach(select => {
-                // Keep the first option (placeholder)
-                const placeholder = select.firstElementChild;
-                select.innerHTML = '';
-                select.appendChild(placeholder);
-                
-                // Add outline options
-                outlines.forEach(outline => {
-                    const option = document.createElement('option');
-                    option.value = outline.number;
-                    option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
-                    select.appendChild(option);
-                });
+            outlines.forEach(outline => {
+                const option = document.createElement('option');
+                option.value = outline.number;
+                option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
+                outlineList.appendChild(option);
+            });
+        }
+
+        // Function to populate the congregation select
+        function populateCongregationsList() {
+            const congregationSelect = document.getElementById('congregationSelect');
+            const customOption = congregationSelect.querySelector('option[value="custom"]');
+            
+            // Clear all options except the first two (placeholder and custom)
+            congregationSelect.innerHTML = '';
+            congregationSelect.appendChild(congregationSelect.firstElementChild); // placeholder
+            congregationSelect.appendChild(customOption); // custom option
+            
+            // Add congregation options
+            congregations.forEach(congregation => {
+                const option = document.createElement('option');
+                option.value = congregation.name;
+                option.textContent = congregation.name;
+                congregationSelect.appendChild(option);
             });
         }
 
@@ -416,8 +474,35 @@ ${t.thanks}`;
             }
         }
 
-        // Load outlines when the page loads
-        document.addEventListener('DOMContentLoaded', loadOutlines);
+        // Function to handle congregation selection change
+        function handleCongregationChange(value) {
+            const congregationInput = document.getElementById('congregation');
+            const congregationSelect = document.getElementById('congregationSelect');
+            
+            if (value === 'custom') {
+                congregationInput.style.display = 'block';
+                congregationInput.value = '';
+                congregationInput.focus();
+            } else {
+                congregationInput.style.display = 'none';
+                congregationInput.value = value;
+            }
+        }
+
+        // Function to handle outline search
+        function handleOutlineSearch(value) {
+            const outline = outlines.find(o => o.number === value);
+            if (outline) {
+                document.getElementById('outlineNumber').value = outline.number;
+                handleOutlineInput(outline.number);
+            }
+        }
+
+        // Load outlines and congregations when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOutlines();
+            loadCongregations();
+        });
     </script>
 </body>
 </html> 
