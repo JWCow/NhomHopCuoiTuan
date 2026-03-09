@@ -385,6 +385,19 @@
 
             <div class="form-group">
                 <label
+                    data-vi="🖼️ Có hình ảnh không?:"
+                    data-en="🖼️ Are there images?:"
+                >🖼️ Có hình ảnh không?:</label>
+                <select id="imagesConfirm">
+                    <option value="Không" data-vi="Không" data-en="No">
+                        Không
+                    </option>
+                    <option value="Có" data-vi="Có" data-en="Yes">Có</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label
                     data-vi="📖 Số Dàn Bài tuần tới:"
                     data-en="📖 Next Week's Outline Number:"
                 >📖 Số Dàn Bài tuần tới:</label>
@@ -459,6 +472,7 @@
                     congregation: "🏛️ Hội thánh:",
                     closingPrayer:
                         "🙏 Diễn giả sẽ cầu nguyện kết thúc:",
+                    uploadedToDrive: "✅ Đã tải lên Google Drive.",
                     nextWeekTalk:
                         "📖 Bài DVCC cho thứ bảy tuần tới có tựa đề:",
                     thanks: "🙏 Cảm ơn các anh.",
@@ -479,6 +493,7 @@
                     congregation: "🏛️ Congregation:",
                     closingPrayer:
                         "🙏 Speaker will give closing prayer:",
+                    uploadedToDrive: "✅ Uploaded to Google Drive.",
                     nextWeekTalk:
                         "📖 Next Saturday's Public Talk Title:",
                     thanks: "🙏 Thank you brothers.",
@@ -601,6 +616,8 @@
                 const prayerConfirm =
                     document.getElementById("prayerConfirm")
                         .value;
+                const imagesConfirm =
+                    document.getElementById("imagesConfirm").value;
                 const nextOutlineNumber =
                     document.getElementById("nextOutlineNumber")
                         .value;
@@ -615,6 +632,10 @@
                     ? prayerConfirm
                     : (prayerConfirm === "Có" ? "Yes" : "No");
 
+                const imagesText = imagesConfirm === "Có"
+                    ? `\n${t.uploadedToDrive}`
+                    : "";
+
                 const message = `${t.greeting}
 
 ${t.meetingDate} ${date} ${t.has}:
@@ -628,7 +649,7 @@ ${t.talkTitle}
 
 ${t.speaker} ${speaker}
 ${t.congregation} ${congregation}
-${t.closingPrayer} ${prayerText} ${prayerEmoji}
+${t.closingPrayer} ${prayerText} ${prayerEmoji}${imagesText}
 
 ${t.nextWeekTalk}
 "${nextOutlineNumber} ${nextTalkTitle}"
