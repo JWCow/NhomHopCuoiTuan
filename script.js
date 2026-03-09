@@ -180,6 +180,9 @@ const App = (() => {
     function formatDate(date) {
         if (!date) return "";
         const [year, month, day] = date.split("-");
+        if (currentLanguage === "en") {
+            return `${month}/${day}/${year}`;
+        }
         return `${day}/${month}/${year}`;
     }
 
