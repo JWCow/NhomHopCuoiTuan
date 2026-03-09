@@ -48,6 +48,7 @@ const App = (() => {
             copyAlert: "Vui lòng tạo tin nhắn trước khi sao chép!",
             copySuccess: "Đã sao chép tin nhắn vào clipboard!",
             copyError: "Không thể sao chép tin nhắn. Vui lòng thử lại!",
+            missingFieldsAlert: "Vui lòng điền đầy đủ Ngày, Tựa đề và Diễn giả!",
         },
         en: {
             // UI elements
@@ -91,6 +92,7 @@ const App = (() => {
             copyAlert: "Please generate a message before copying!",
             copySuccess: "Message copied to clipboard!",
             copyError: "Could not copy message. Please try again!",
+            missingFieldsAlert: "Please fill in the required Date, Title, and Speaker fields!",
         }
     };
 
@@ -191,6 +193,7 @@ const App = (() => {
         
         // Prevent generating if required fields are missing
         if (!DOM.date.value || !DOM.talkTitle.value || !DOM.speaker.value) {
+            alert(t.missingFieldsAlert);
             return;
         }
 
