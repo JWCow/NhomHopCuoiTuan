@@ -1,0 +1,157 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --input-bg: #2d2d2d;
+    --input-border: #404040;
+    --button-bg: #4a4a8c;
+    --button-hover: #5a5aa6;
+    --preview-bg: #2a2a2a;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+.preview {
+    background-color: var(--preview-bg);
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    white-space: pre-wrap;
+    min-height: 200px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--button-bg);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: 14px;
+    width: auto;
+}
+
+.language-toggle:hover {
+    background-color: var(--button-hover);
+}
+
+.outline-input-container {
+    position: relative;
+    width: 100%;
+}
+
+.outline-input {
+    width: 100%;
+    cursor: pointer;
+}
+
+.outline-input-container::after {
+    display: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.highlight {
+    background-color: var(--button-bg);
+    color: white;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.congregation-input {
+    display: flex;
+    gap: 10px;
+}
+
+.congregation-input select,
+.congregation-input input {
+    flex: 1;
+}
+
+datalist {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+input[type="date"] {
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
