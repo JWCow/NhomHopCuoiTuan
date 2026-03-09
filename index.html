@@ -472,7 +472,8 @@
                     congregation: "🏛️ Hội thánh:",
                     closingPrayer:
                         "🙏 Diễn giả sẽ cầu nguyện kết thúc:",
-                    uploadedToDrive: "✅ 🖼️ Hình ảnh đã tải lên Google Drive.",
+                    imagesYes: "🖼️ Hình ảnh: ✅ Đã tải lên Google Drive.",
+                    imagesNo: "🖼️ Hình ảnh: 🚫 Không có hình ảnh.",
                     nextWeekTalk:
                         "📖 Bài DVCC cho thứ bảy tuần tới có tựa đề:",
                     thanks: "🙏 Cảm ơn các anh.",
@@ -493,7 +494,8 @@
                     congregation: "🏛️ Congregation:",
                     closingPrayer:
                         "🙏 Speaker will give closing prayer:",
-                    uploadedToDrive: "✅ 🖼️ Images uploaded to Google Drive.",
+                    imagesYes: "🖼️ Images: ✅ Uploaded to Google Drive.",
+                    imagesNo: "🖼️ Images: 🚫 No images.",
                     nextWeekTalk:
                         "📖 Next Saturday's Public Talk Title:",
                     thanks: "🙏 Thank you brothers.",
@@ -633,8 +635,8 @@
                     : (prayerConfirm === "Có" ? "Yes" : "No");
 
                 const imagesText = imagesConfirm === "Có"
-                    ? `\n${t.uploadedToDrive}`
-                    : "";
+                    ? `\n${t.imagesYes}`
+                    : `\n${t.imagesNo}`;
 
                 const message = `${t.greeting}
 
