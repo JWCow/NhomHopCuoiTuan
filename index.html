@@ -1,418 +1,627 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Generator - Công cụ tạo tin nhắn</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Message Generator - Công cụ tạo tin nhắn</title>
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Message Generator - Công cụ tạo tin nhắn thông báo">
-    <meta name="description" content="Tạo tin nhắn thông báo cho buổi nhóm họp cuối tuần một cách nhanh chóng và chuyên nghiệp. Giao diện hiện đại, hỗ trợ tiếng Việt và tiếng Anh.">
-    <meta name="keywords" content="message generator, tin nhắn thông báo, nhóm họp cuối tuần, công cụ tạo tin nhắn">
-    <meta name="author" content="JWCow">
+        <!-- Primary Meta Tags -->
+        <meta
+            name="title"
+            content="Message Generator - Công cụ tạo tin nhắn thông báo"
+        >
+        <meta
+            name="description"
+            content="Tạo tin nhắn thông báo cho buổi nhóm họp cuối tuần một cách nhanh chóng và chuyên nghiệp. Giao diện hiện đại, hỗ trợ tiếng Việt và tiếng Anh."
+        >
+        <meta
+            name="keywords"
+            content="message generator, tin nhắn thông báo, nhóm họp cuối tuần, công cụ tạo tin nhắn"
+        >
+        <meta name="author" content="JWCow">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nhomhop-messenger.vercel.app/">
-    <meta property="og:title" content="Message Generator - Công cụ tạo tin nhắn thông báo">
-    <meta property="og:description" content="Tạo tin nhắn thông báo cho buổi nhóm họp cuối tuần một cách nhanh chóng và chuyên nghiệp. Giao diện hiện đại, hỗ trợ tiếng Việt và tiếng Anh.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/JWCow/NhomHopCuoiTuan/main/preview.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="vi_VN">
-    <meta property="og:site_name" content="Message Generator">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://nhomhop-messenger.vercel.app/">
+        <meta
+            property="og:title"
+            content="Message Generator - Công cụ tạo tin nhắn thông báo"
+        >
+        <meta
+            property="og:description"
+            content="Tạo tin nhắn thông báo cho buổi nhóm họp cuối tuần một cách nhanh chóng và chuyên nghiệp. Giao diện hiện đại, hỗ trợ tiếng Việt và tiếng Anh."
+        >
+        <meta
+            property="og:image"
+            content="https://raw.githubusercontent.com/JWCow/NhomHopCuoiTuan/main/preview.png"
+        >
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:locale" content="vi_VN">
+        <meta property="og:site_name" content="Message Generator">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nhomhop-messenger.vercel.app/">
-    <meta property="twitter:title" content="Message Generator - Công cụ tạo tin nhắn thông báo">
-    <meta property="twitter:description" content="Tạo tin nhắn thông báo cho buổi nhóm họp cuối tuần một cách nhanh chóng và chuyên nghiệp. Giao diện hiện đại, hỗ trợ tiếng Việt và tiếng Anh.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/JWCow/NhomHopCuoiTuan/main/preview.png">
-    <meta name="twitter:creator" content="@JWCow">
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta
+            property="twitter:url"
+            content="https://nhomhop-messenger.vercel.app/"
+        >
+        <meta
+            property="twitter:title"
+            content="Message Generator - Công cụ tạo tin nhắn thông báo"
+        >
+        <meta
+            property="twitter:description"
+            content="Tạo tin nhắn thông báo cho buổi nhóm họp cuối tuần một cách nhanh chóng và chuyên nghiệp. Giao diện hiện đại, hỗ trợ tiếng Việt và tiếng Anh."
+        >
+        <meta
+            property="twitter:image"
+            content="https://raw.githubusercontent.com/JWCow/NhomHopCuoiTuan/main/preview.png"
+        >
+        <meta name="twitter:creator" content="@JWCow">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABZklEQVR4nO2WTU7DQAyFPxALlkgsuQ5HgBMgTsB1YNdFz8CCA3AFVAgJiR07UPcMbNiAEBJC/EQd1VGVSTp/naEgYSlW6sl7z2OPxzDwz1kJ3AG/UgZRvb+xKKfAK/Cj+gQ2+xR/AH5bRD5UH/sQvwS+O0QWugdWY4uvA99L4t/AA3CuWgEPwEeL0Hss8XPga4n4G3DTUbsJvLeIXcYQv2wRX6h3HfVbwIxoZ6GdHwEfLeIzYK+H1h7w3NJBcAcugI8WgVdgO4DmdsD7zIFzYNpS/AXYCay/AzwZHUyBs1B9PwKTlrbPgLVIXqvAo9HFBBi7Fh8BYwOcRDZZ6tKxwcEEGLkUHwHPBjCNZGKpK8PBGBi6Eh8Cj8bLSYSNZ6lrw8UIOHAhPjCAH0DfkUmXrg03+8C7AXz1uVQMcKJ6N8DvPu/zAJgbwEff22sAE9VbKGcxjFeBW+DHVwf/gRXjD5NrqoP/j1OGAAAAAElFTkSuQmCC">
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            type="image/png"
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABZklEQVR4nO2WTU7DQAyFPxALlkgsuQ5HgBMgTsB1YNdFz8CCA3AFVAgJiR07UPcMbNiAEBJC/EQd1VGVSTp/naEgYSlW6sl7z2OPxzDwz1kJ3AG/UgZRvb+xKKfAK/Cj+gQ2+xR/AH5bRD5UH/sQvwS+O0QWugdWY4uvA99L4t/AA3CuWgEPwEeL0Hss8XPga4n4G3DTUbsJvLeIXcYQv2wRX6h3HfVbwIxoZ6GdHwEfLeIzYK+H1h7w3NJBcAcugI8WgVdgO4DmdsD7zIFzYNpS/AXYCay/AzwZHUyBs1B9PwKTlrbPgLVIXqvAo9HFBBi7Fh8BYwOcRDZZ6tKxwcEEGLkUHwHPBjCNZGKpK8PBGBi6Eh8Cj8bLSYSNZ6lrw8UIOHAhPjCAH0DfkUmXrg03+8C7AXz1uVQMcKJ6N8DvPu/zAJgbwEff22sAE9VbKGcxjFeBW+DHVwf/gRXjD5NrqoP/j1OGAAAAAElFTkSuQmCC"
+        >
 
-    <style>
-        :root {
-            --bg-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --input-bg: #2d2d2d;
-            --input-border: #404040;
-            --button-bg: #4a4a8c;
-            --button-hover: #5a5aa6;
-            --preview-bg: #2a2a2a;
-        }
+        <style>
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #e0e0e0;
+                --input-bg: #2d2d2d;
+                --input-border: #404040;
+                --button-bg: #4a4a8c;
+                --button-hover: #5a5aa6;
+                --preview-bg: #2a2a2a;
+            }
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
+            body {
+                font-family: "Segoe UI", sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                margin: 0;
+                padding: 20px;
+                line-height: 1.6;
+            }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+            .form-group {
+                margin-bottom: 15px;
+            }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
 
-        input, select {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid var(--input-border);
-            border-radius: 4px;
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            font-size: 14px;
-        }
+            input, select {
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid var(--input-border);
+                border-radius: 4px;
+                background-color: var(--input-bg);
+                color: var(--text-color);
+                font-size: 14px;
+            }
 
-        button {
-            background-color: var(--button-bg);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            width: 100%;
-            margin: 10px 0;
-            transition: background-color 0.3s;
-        }
+            button {
+                background-color: var(--button-bg);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+                width: 100%;
+                margin: 10px 0;
+                transition: background-color 0.3s;
+            }
 
-        button:hover {
-            background-color: var(--button-hover);
-        }
+            button:hover {
+                background-color: var(--button-hover);
+            }
 
-        .preview {
-            background-color: var(--preview-bg);
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 20px;
-            white-space: pre-wrap;
-            min-height: 200px;
-        }
+            .preview {
+                background-color: var(--preview-bg);
+                padding: 15px;
+                border-radius: 4px;
+                margin-top: 20px;
+                white-space: pre-wrap;
+                min-height: 200px;
+            }
 
-        .title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
+            .title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 24px;
+            }
 
-        .language-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: var(--button-bg);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            border: none;
-            font-size: 14px;
-            width: auto;
-        }
+            .language-toggle {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: var(--button-bg);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                border: none;
+                font-size: 14px;
+                width: auto;
+            }
 
-        .language-toggle:hover {
-            background-color: var(--button-hover);
-        }
+            .language-toggle:hover {
+                background-color: var(--button-hover);
+            }
 
-        /* Remove the custom outline input styles */
-        .outline-input-container {
-            position: relative;
-            width: 100%;
-        }
+            /* Remove the custom outline input styles */
+            .outline-input-container {
+                position: relative;
+                width: 100%;
+            }
 
-        .outline-input {
-            width: 100%;
-            cursor: pointer;
-        }
+            .outline-input {
+                width: 100%;
+                cursor: pointer;
+            }
 
-        /* Remove the custom arrow */
-        .outline-input-container::after {
-            display: none;
-        }
+            /* Remove the custom arrow */
+            .outline-input-container::after {
+                display: none;
+            }
 
-        /* Style for datalist options */
-        input::-webkit-calendar-picker-indicator {
-            opacity: 0;
-            cursor: pointer;
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
+            /* Style for datalist options */
+            input::-webkit-calendar-picker-indicator {
+                opacity: 0;
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
 
-        /* Highlight matching text */
-        .highlight {
-            background-color: var(--button-bg);
-            color: white;
-            padding: 0 2px;
-            border-radius: 2px;
-        }
+            /* Highlight matching text */
+            .highlight {
+                background-color: var(--button-bg);
+                color: white;
+                padding: 0 2px;
+                border-radius: 2px;
+            }
 
-        .congregation-input {
-            display: flex;
-            gap: 10px;
-        }
+            .congregation-input {
+                display: flex;
+                gap: 10px;
+            }
 
-        .congregation-input select,
-        .congregation-input input {
-            flex: 1;
-        }
+            .congregation-input select,
+            .congregation-input input {
+                flex: 1;
+            }
 
-        datalist {
-            max-height: 200px;
-            overflow-y: auto;
-        }
+            datalist {
+                max-height: 200px;
+                overflow-y: auto;
+            }
 
-        /* Add these styles for the date input */
-        input[type="date"] {
-            position: relative;
-            cursor: pointer;
-        }
+            /* Add these styles for the date input */
+            input[type="date"] {
+                position: relative;
+                cursor: pointer;
+            }
 
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            position: absolute;
-            right: 8px;
-            cursor: pointer;
-        }
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                position: absolute;
+                right: 8px;
+                cursor: pointer;
+            }
 
-        input[type="date"]::-webkit-inner-spin-button,
-        input[type="date"]::-webkit-clear-button {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <button class="language-toggle" onclick="toggleLanguage()">🌐 English</button>
-    <div class="container">
-        <h1 class="title" data-vi="✨ Tạo Thông Báo DVCC" data-en="✨ Public Talk Announcer">✨ Tạo Thông Báo DVCC</h1>
-        
-        <div class="form-group">
-            <label data-vi="📅 Ngày:" data-en="📅 Date:">📅 Ngày:</label>
-            <input type="date" 
-                   id="date" 
-                   required
-                   onblur="this.blur()"
-                   onfocus="this.showPicker()">
-        </div>
+            input[type="date"]::-webkit-inner-spin-button,
+            input[type="date"]::-webkit-clear-button {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="language-toggle" onclick="toggleLanguage()">
+            🌐 English
+        </button>
+        <div class="container">
+            <h1
+                class="title"
+                data-vi="✨ Tạo Thông Báo DVCC"
+                data-en="✨ Public Talk Announcer"
+            >
+                ✨ Tạo Thông Báo DVCC
+            </h1>
 
-        <div class="form-group">
-            <label data-vi="🎵 Bài hát mở đầu số:" data-en="🎵 Opening Song Number:">🎵 Bài hát mở đầu số:</label>
-            <input type="text" 
-                   id="songSearch" 
-                   list="songList"
-                   placeholder="Tìm bài hát..."
-                   onchange="handleSongSearch(this.value)"
-                   required>
-            <input type="hidden" id="songNumber">
-            <datalist id="songList">
-                <!-- Will be populated by JavaScript -->
-            </datalist>
-        </div>
-
-        <div class="form-group">
-            <label data-vi="📖 Số Dàn Bài:" data-en="📖 Outline Number:">📖 Số Dàn Bài:</label>
-            <input type="text" 
-                   id="outlineSearch" 
-                   list="outlineList"
-                   placeholder="Tìm số dàn bài..."
-                   onchange="handleOutlineSearch(this.value)"
-                   required>
-            <input type="hidden" id="outlineNumber">
-            <datalist id="outlineList">
-                <!-- Will be populated by JavaScript -->
-            </datalist>
-        </div>
-
-        <div class="form-group">
-            <label data-vi="📖 Bài DVCC có tựa đề:" data-en="📖 Public Talk Title:">📖 Bài DVCC có tựa đề:</label>
-            <input type="text" 
-                   id="talkTitle" 
-                   readonly 
-                   required>
-        </div>
-
-        <div class="form-group">
-            <label data-vi="🎤 Diễn giả:" data-en="🎤 Speaker:">🎤 Diễn giả:</label>
-            <input type="text" id="speaker" required>
-        </div>
-
-        <div class="form-group">
-            <label data-vi="🏛️ Hội thánh:" data-en="🏛️ Congregation:">🏛️ Hội thánh:</label>
-            <div class="congregation-input">
-                <select id="congregationSelect" onchange="handleCongregationChange(this.value)">
-                    <option value="">Chọn hội thánh</option>
-                    <option value="custom" data-vi="Tùy chỉnh" data-en="Custom">Tùy chỉnh</option>
-                    <!-- Will be populated by JavaScript -->
-                </select>
-                <input type="text" 
-                       id="congregation" 
-                       style="display: none;"
-                       placeholder="Nhập tên hội thánh"
-                       required>
+            <div class="form-group">
+                <label data-vi="📅 Ngày:" data-en="📅 Date:">📅 Ngày:</label>
+                <input
+                    type="date"
+                    id="date"
+                    required
+                    onblur="this.blur()"
+                    onfocus="this.showPicker()"
+                >
             </div>
+
+            <div class="form-group">
+                <label
+                    data-vi="🎵 Bài hát mở đầu số:"
+                    data-en="🎵 Opening Song Number:"
+                >🎵 Bài hát mở đầu số:</label>
+                <div class="congregation-input">
+                    <select
+                        id="songSelect"
+                        onchange="handleSongChange(this.value)"
+                    >
+                        <option
+                            value=""
+                            data-vi="Chọn bài hát"
+                            data-en="Select song"
+                        >
+                            Chọn bài hát
+                        </option>
+                        <option
+                            value="custom"
+                            data-vi="Tùy chỉnh"
+                            data-en="Custom"
+                        >
+                            Tùy chỉnh
+                        </option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                    <input
+                        type="text"
+                        id="songCustom"
+                        style="display: none"
+                        placeholder="Nhập số bài hát"
+                        oninput="handleSongCustomInput(this.value)"
+                    >
+                </div>
+                <input type="hidden" id="songNumber">
+            </div>
+
+            <div class="form-group">
+                <label data-vi="📖 Số Dàn Bài:" data-en="📖 Outline Number:"
+                >📖 Số Dàn Bài:</label>
+                <div class="congregation-input">
+                    <select
+                        id="outlineSelect"
+                        onchange="handleOutlineChange(this.value)"
+                    >
+                        <option
+                            value=""
+                            data-vi="Chọn số dàn bài"
+                            data-en="Select outline"
+                        >
+                            Chọn số dàn bài
+                        </option>
+                        <option
+                            value="custom"
+                            data-vi="Tùy chỉnh"
+                            data-en="Custom"
+                        >
+                            Tùy chỉnh
+                        </option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                    <input
+                        type="text"
+                        id="outlineCustom"
+                        style="display: none"
+                        placeholder="Nhập số dàn bài"
+                        oninput="handleOutlineCustomInput(this.value)"
+                    >
+                </div>
+                <input type="hidden" id="outlineNumber">
+            </div>
+
+            <div class="form-group">
+                <label
+                    data-vi="📖 Bài DVCC có tựa đề:"
+                    data-en="📖 Public Talk Title:"
+                >📖 Bài DVCC có tựa đề:</label>
+                <input type="text" id="talkTitle" required>
+            </div>
+
+            <div class="form-group">
+                <label data-vi="🎤 Diễn giả:" data-en="🎤 Speaker:"
+                >🎤 Diễn giả:</label>
+                <input type="text" id="speaker" required>
+            </div>
+
+            <div class="form-group">
+                <label data-vi="🏛️ Hội thánh:" data-en="🏛️ Congregation:"
+                >🏛️ Hội thánh:</label>
+                <div class="congregation-input">
+                    <select
+                        id="congregationSelect"
+                        onchange="handleCongregationChange(this.value)"
+                    >
+                        <option value="">Chọn hội thánh</option>
+                        <option
+                            value="custom"
+                            data-vi="Tùy chỉnh"
+                            data-en="Custom"
+                        >
+                            Tùy chỉnh
+                        </option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                    <input
+                        type="text"
+                        id="congregation"
+                        style="display: none"
+                        placeholder="Nhập tên hội thánh"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label
+                    data-vi="🙏 Cầu nguyện kết thúc?:"
+                    data-en="🙏 Closing Prayer?:"
+                >🙏 Cầu nguyện kết thúc?:</label>
+                <select id="prayerConfirm">
+                    <option value="Có" data-vi="Có" data-en="Yes">Có</option>
+                    <option value="Không" data-vi="Không" data-en="No">
+                        Không
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label
+                    data-vi="📖 Số Dàn Bài tuần tới:"
+                    data-en="📖 Next Week's Outline Number:"
+                >📖 Số Dàn Bài tuần tới:</label>
+                <div class="congregation-input">
+                    <select
+                        id="nextOutlineSelect"
+                        onchange="handleNextOutlineChange(this.value)"
+                    >
+                        <option
+                            value=""
+                            data-vi="Chọn số dàn bài"
+                            data-en="Select outline"
+                        >
+                            Chọn số dàn bài
+                        </option>
+                        <option
+                            value="custom"
+                            data-vi="Tùy chỉnh"
+                            data-en="Custom"
+                        >
+                            Tùy chỉnh
+                        </option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                    <input
+                        type="text"
+                        id="nextOutlineCustom"
+                        style="display: none"
+                        placeholder="Nhập số dàn bài"
+                        oninput="handleNextOutlineCustomInput(this.value)"
+                    >
+                </div>
+                <input type="hidden" id="nextOutlineNumber">
+            </div>
+
+            <div class="form-group">
+                <label
+                    data-vi="📖 Bài DVCC tuần tới:"
+                    data-en="📖 Next Week's Talk Title:"
+                >📖 Bài DVCC tuần tới:</label>
+                <input type="text" id="nextTalkTitle">
+            </div>
+
+            <button
+                onclick="generateMessage()"
+                data-vi="✨ Tạo tin nhắn"
+                data-en="✨ Generate Message"
+            >
+                ✨ Tạo tin nhắn
+            </button>
+            <button
+                onclick="copyToClipboard()"
+                data-vi="📋 Sao chép tin nhắn"
+                data-en="📋 Copy Message"
+            >
+                📋 Sao chép tin nhắn
+            </button>
+
+            <div class="preview" id="preview"></div>
         </div>
 
-        <div class="form-group">
-            <label data-vi="🙏 Cầu nguyện kết thúc?:" data-en="🙏 Closing Prayer?:">🙏 Cầu nguyện kết thúc?:</label>
-            <select id="prayerConfirm">
-                <option value="Có" data-vi="Có" data-en="Yes">Có</option>
-                <option value="Không" data-vi="Không" data-en="No">Không</option>
-            </select>
-        </div>
+        <script>
+            let currentLanguage = "vi";
+            const translations = {
+                vi: {
+                    greeting: "👋 Chào các anh!",
+                    meetingDate: "📅 Nhóm họp ngày",
+                    has: "có",
+                    openingSong: "🎵 Bài hát mở đầu số:",
+                    talkTitle: "📖 Bài DVCC có tựa đề:",
+                    speaker: "🎤 Diễn giả:",
+                    congregation: "🏛️ Hội thánh:",
+                    closingPrayer:
+                        "🙏 Diễn giả sẽ cầu nguyện kết thúc:",
+                    nextWeekTalk:
+                        "📖 Bài DVCC cho thứ bảy tuần tới có tựa đề:",
+                    thanks: "🙏 Cảm ơn các anh.",
+                    copyAlert:
+                        "Vui lòng tạo tin nhắn trước khi sao chép!",
+                    copySuccess:
+                        "Đã sao chép tin nhắn vào clipboard!",
+                    copyError:
+                        "Không thể sao chép tin nhắn. Vui lòng thử lại!",
+                },
+                en: {
+                    greeting: "👋 Hello brothers!",
+                    meetingDate: "📅 Meeting on",
+                    has: "includes",
+                    openingSong: "🎵 Opening Song Number:",
+                    talkTitle: "📖 Public Talk Title:",
+                    speaker: "🎤 Speaker:",
+                    congregation: "🏛️ Congregation:",
+                    closingPrayer:
+                        "🙏 Speaker will give closing prayer:",
+                    nextWeekTalk:
+                        "📖 Next Saturday's Public Talk Title:",
+                    thanks: "🙏 Thank you brothers.",
+                    copyAlert:
+                        "Please generate a message before copying!",
+                    copySuccess: "Message copied to clipboard!",
+                    copyError:
+                        "Could not copy message. Please try again!",
+                },
+            };
 
-        <div class="form-group">
-            <label data-vi="📖 Số Dàn Bài tuần tới:" data-en="📖 Next Week's Outline Number:">📖 Số Dàn Bài tuần tới:</label>
-            <input type="text" 
-                   id="nextOutlineSearch" 
-                   list="nextOutlineList"
-                   placeholder="Tìm số dàn bài..."
-                   onchange="handleNextOutlineSearch(this.value)"
-                   required>
-            <input type="hidden" id="nextOutlineNumber">
-            <datalist id="nextOutlineList">
-                <!-- Will be populated by JavaScript -->
-            </datalist>
-        </div>
+            function toggleLanguage() {
+                currentLanguage = currentLanguage === "vi"
+                    ? "en"
+                    : "vi";
+                const toggle = document.querySelector(
+                    ".language-toggle",
+                );
+                toggle.textContent = currentLanguage === "vi"
+                    ? "🌐 English"
+                    : "🌐 Tiếng Việt";
 
-        <div class="form-group">
-            <label data-vi="📖 Bài DVCC tuần tới:" data-en="📖 Next Week's Talk Title:">📖 Bài DVCC tuần tới:</label>
-            <input type="text" 
-                   id="nextTalkTitle" 
-                   readonly>
-        </div>
+                // Update all labels and buttons
+                document.querySelectorAll("[data-vi]").forEach(
+                    (element) => {
+                        element.textContent = element
+                            .getAttribute(
+                                `data-${currentLanguage}`,
+                            );
+                    },
+                );
 
-        <button onclick="generateMessage()" data-vi="✨ Tạo tin nhắn" data-en="✨ Generate Message">✨ Tạo tin nhắn</button>
-        <button onclick="copyToClipboard()" data-vi="📋 Sao chép tin nhắn" data-en="📋 Copy Message">📋 Sao chép tin nhắn</button>
+                document.getElementById("congregation")
+                    .placeholder = currentLanguage === "vi"
+                        ? "Nhập tên hội thánh"
+                        : "Enter congregation name";
 
-        <div class="preview" id="preview"></div>
-    </div>
+                const songPlaceholder = currentLanguage === "vi"
+                    ? "Nhập số bài hát"
+                    : "Enter song number";
+                const outlinePlaceholder =
+                    currentLanguage === "vi"
+                        ? "Nhập số dàn bài"
+                        : "Enter outline number";
 
-    <script>
-        let currentLanguage = 'vi';
-        const translations = {
-            vi: {
-                greeting: '👋 Chào các anh!',
-                meetingDate: '📅 Nhóm họp ngày',
-                has: 'có',
-                openingSong: '🎵 Bài hát mở đầu số:',
-                talkTitle: '📖 Bài DVCC có tựa đề:',
-                speaker: '🎤 Diễn giả:',
-                congregation: '🏛️ Hội thánh:',
-                closingPrayer: '🙏 Diễn giả sẽ cầu nguyện kết thúc:',
-                nextWeekTalk: '📖 Bài DVCC cho thứ bảy tuần tới có tựa đề:',
-                thanks: '🙏 Cảm ơn các anh.',
-                copyAlert: 'Vui lòng tạo tin nhắn trước khi sao chép!',
-                copySuccess: 'Đã sao chép tin nhắn vào clipboard!',
-                copyError: 'Không thể sao chép tin nhắn. Vui lòng thử lại!'
-            },
-            en: {
-                greeting: '👋 Hello brothers!',
-                meetingDate: '📅 Meeting on',
-                has: 'includes',
-                openingSong: '🎵 Opening Song Number:',
-                talkTitle: '📖 Public Talk Title:',
-                speaker: '🎤 Speaker:',
-                congregation: '🏛️ Congregation:',
-                closingPrayer: '🙏 Speaker will give closing prayer:',
-                nextWeekTalk: '📖 Next Saturday\'s Public Talk Title:',
-                thanks: '🙏 Thank you brothers.',
-                copyAlert: 'Please generate a message before copying!',
-                copySuccess: 'Message copied to clipboard!',
-                copyError: 'Could not copy message. Please try again!'
+                document.getElementById("songCustom")
+                    .placeholder = songPlaceholder;
+                document.getElementById("outlineCustom")
+                    .placeholder = outlinePlaceholder;
+                document.getElementById("nextOutlineCustom")
+                    .placeholder = outlinePlaceholder;
+
+                // Update select options
+                document.querySelectorAll("option[data-vi]")
+                    .forEach((option) => {
+                        option.textContent = option
+                            .getAttribute(
+                                `data-${currentLanguage}`,
+                            );
+                    });
+
+                // Refresh songs and outlines lists with new language
+                populateSongsList();
+                populateOutlineLists();
+
+                // Update outline titles if they exist
+                const outlineNumber =
+                    document.getElementById("outlineNumber")
+                        .value;
+                const nextOutlineNumber =
+                    document.getElementById("nextOutlineNumber")
+                        .value;
+
+                if (outlineNumber) {
+                    handleOutlineSelect(outlineNumber);
+                }
+                if (nextOutlineNumber) {
+                    handleNextOutlineSelect(nextOutlineNumber);
+                }
+
+                // Regenerate message if preview exists
+                const preview = document.getElementById(
+                    "preview",
+                );
+                if (preview.textContent) {
+                    generateMessage();
+                }
             }
-        };
 
-        function toggleLanguage() {
-            currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
-            const toggle = document.querySelector('.language-toggle');
-            toggle.textContent = currentLanguage === 'vi' ? '🌐 English' : '🌐 Tiếng Việt';
-            
-            // Update all labels and buttons
-            document.querySelectorAll('[data-vi]').forEach(element => {
-                element.textContent = element.getAttribute(`data-${currentLanguage}`);
-            });
-
-            // Update placeholders
-            document.getElementById('congregation').placeholder = 
-                currentLanguage === 'vi' ? 'Nhập tên hội thánh' : 'Enter congregation name';
-            document.getElementById('outlineSearch').placeholder = 
-                currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
-            document.getElementById('nextOutlineSearch').placeholder = 
-                currentLanguage === 'vi' ? 'Tìm số dàn bài...' : 'Search outline number...';
-            document.getElementById('songSearch').placeholder = 
-                currentLanguage === 'vi' ? 'Tìm bài hát...' : 'Search for song...';
-
-            // Update select options
-            document.querySelectorAll('option[data-vi]').forEach(option => {
-                option.textContent = option.getAttribute(`data-${currentLanguage}`);
-            });
-
-            // Refresh songs and outlines lists with new language
-            populateSongsList();
-            populateOutlineLists();
-
-            // Update outline titles if they exist
-            const outlineNumber = document.getElementById('outlineNumber').value;
-            const nextOutlineNumber = document.getElementById('nextOutlineNumber').value;
-            
-            if (outlineNumber) {
-                handleOutlineSearch(outlineNumber);
-            }
-            if (nextOutlineNumber) {
-                handleNextOutlineSearch(nextOutlineNumber);
+            function formatDate(date) {
+                const [year, month, day] = date.split("-");
+                return `${day}/${month}/${year}`;
             }
 
-            // Regenerate message if preview exists
-            const preview = document.getElementById('preview');
-            if (preview.textContent) {
-                generateMessage();
-            }
-        }
+            function generateMessage() {
+                const t = translations[currentLanguage];
+                const date = formatDate(
+                    document.getElementById("date").value,
+                );
+                const songNumber =
+                    document.getElementById("songNumber").value;
+                const song = songs.find((s) =>
+                    s.number === songNumber
+                );
+                const songTitle = song
+                    ? (currentLanguage === "vi"
+                        ? song.title_vi
+                        : song.title_en)
+                    : "";
+                const outlineNumber =
+                    document.getElementById("outlineNumber")
+                        .value;
+                const talkTitle =
+                    document.getElementById("talkTitle").value;
+                const speaker =
+                    document.getElementById("speaker").value;
+                const congregation =
+                    document.getElementById("congregation")
+                        .value;
+                const prayerConfirm =
+                    document.getElementById("prayerConfirm")
+                        .value;
+                const nextOutlineNumber =
+                    document.getElementById("nextOutlineNumber")
+                        .value;
+                const nextTalkTitle =
+                    document.getElementById("nextTalkTitle")
+                        .value;
 
-        function formatDate(date) {
-            const [year, month, day] = date.split('-');
-            return `${day}/${month}/${year}`;
-        }
+                const prayerEmoji = prayerConfirm === "Có"
+                    ? "✅"
+                    : "❌";
+                const prayerText = currentLanguage === "vi"
+                    ? prayerConfirm
+                    : (prayerConfirm === "Có" ? "Yes" : "No");
 
-        function generateMessage() {
-            const t = translations[currentLanguage];
-            const date = formatDate(document.getElementById('date').value);
-            const songNumber = document.getElementById('songNumber').value;
-            const song = songs.find(s => s.number === songNumber);
-            const songTitle = song ? (currentLanguage === 'vi' ? song.title_vi : song.title_en) : '';
-            const outlineNumber = document.getElementById('outlineNumber').value;
-            const talkTitle = document.getElementById('talkTitle').value;
-            const speaker = document.getElementById('speaker').value;
-            const congregation = document.getElementById('congregation').value;
-            const prayerConfirm = document.getElementById('prayerConfirm').value;
-            const nextOutlineNumber = document.getElementById('nextOutlineNumber').value;
-            const nextTalkTitle = document.getElementById('nextTalkTitle').value;
-
-            const prayerEmoji = prayerConfirm === 'Có' ? '✅' : '❌';
-            const prayerText = currentLanguage === 'vi' ? prayerConfirm : (prayerConfirm === 'Có' ? 'Yes' : 'No');
-
-            const message = `${t.greeting}
+                const message = `${t.greeting}
 
 ${t.meetingDate} ${date} ${t.has}:
 
-${t.openingSong} ${songNumber} - "${songTitle}"
+${t.openingSong} ${songNumber} ${
+                    songTitle ? `- "${songTitle}"` : ""
+                }
 
 ${t.talkTitle}
 "${outlineNumber} ${talkTitle}"
@@ -426,218 +635,385 @@ ${t.nextWeekTalk}
 
 ${t.thanks}`;
 
-            document.getElementById('preview').textContent = message;
-        }
-
-        function copyToClipboard() {
-            const preview = document.getElementById('preview');
-            const text = preview.textContent;
-            const t = translations[currentLanguage];
-            
-            if (!text) {
-                alert(t.copyAlert);
-                return;
+                document.getElementById("preview").textContent =
+                    message;
             }
 
-            navigator.clipboard.writeText(text).then(() => {
-                alert(t.copySuccess);
-            }).catch(err => {
-                console.error('Copy failed:', err);
-                alert(t.copyError);
-            });
-        }
+            function copyToClipboard() {
+                const preview = document.getElementById(
+                    "preview",
+                );
+                const text = preview.textContent;
+                const t = translations[currentLanguage];
 
-        // Set today's date as default
-        document.getElementById('date').valueAsDate = new Date();
+                if (!text) {
+                    alert(t.copyAlert);
+                    return;
+                }
 
-        let outlines = []; // Will store the outline database
-        let outlines_en = []; // Will store the English outline database
-        let congregations = []; // Will store the congregations database
-        let songs = []; // Will store the songs database
-
-        // Function to load outlines
-        async function loadOutlines() {
-            try {
-                const response = await fetch('outlines.json');
-                const data = await response.json();
-                outlines = data.outlines;
-                
-                const response_en = await fetch('outlines_en.json');
-                const data_en = await response_en.json();
-                outlines_en = data_en.outlines;
-                
-                // Initialize outline lists
-                populateOutlineLists();
-            } catch (error) {
-                console.error('Error loading outlines:', error);
+                navigator.clipboard.writeText(text).then(() => {
+                    alert(t.copySuccess);
+                }).catch((err) => {
+                    console.error("Copy failed:", err);
+                    alert(t.copyError);
+                });
             }
-        }
 
-        // Function to populate outline lists
-        function populateOutlineLists() {
-            const outlineList = document.getElementById('outlineList');
-            const nextOutlineList = document.getElementById('nextOutlineList');
-            
-            // Clear existing options
-            outlineList.innerHTML = '';
-            nextOutlineList.innerHTML = '';
-            
-            // Get current outlines based on language
-            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
-            
-            // Add outline options
-            currentOutlines.forEach(outline => {
-                const option = document.createElement('option');
-                option.value = outline.number;
-                option.textContent = `${outline.number.padStart(3, '0')} - ${outline.title}`;
-                outlineList.appendChild(option.cloneNode(true));
-                nextOutlineList.appendChild(option);
-            });
-        }
+            // Set today's date as default
+            document.getElementById("date").valueAsDate =
+                new Date();
 
-        // Function to load the congregations database
-        async function loadCongregations() {
-            try {
-                const response = await fetch('congregations.json');
-                const data = await response.json();
-                congregations = data.congregations;
-                populateCongregationsList();
-            } catch (error) {
-                console.error('Error loading congregations:', error);
-            }
-        }
+            let outlines = []; // Will store the outline database
+            let outlines_en = []; // Will store the English outline database
+            let congregations = []; // Will store the congregations database
+            let songs = []; // Will store the songs database
 
-        // Function to load the songs database
-        async function loadSongs() {
-            try {
-                const response = await fetch('songs.json');
-                const data = await response.json();
-                songs = data.songs;
-                populateSongsList();
-            } catch (error) {
-                console.error('Error loading songs:', error);
-            }
-        }
+            // Function to load outlines
+            async function loadOutlines() {
+                try {
+                    const response = await fetch(
+                        "outlines.json",
+                    );
+                    const data = await response.json();
+                    outlines = data.outlines;
 
-        // Function to populate the congregation select
-        function populateCongregationsList() {
-            const congregationSelect = document.getElementById('congregationSelect');
-            
-            // Keep the first two options (placeholder and custom)
-            const placeholder = congregationSelect.querySelector('option[value=""]');
-            const customOption = congregationSelect.querySelector('option[value="custom"]');
-            
-            // Clear all options
-            congregationSelect.innerHTML = '';
-            
-            // Add back placeholder and custom options
-            if (placeholder) congregationSelect.appendChild(placeholder);
-            if (customOption) congregationSelect.appendChild(customOption);
-            
-            // Add congregation options
-            congregations.forEach(congregation => {
-                const option = document.createElement('option');
-                option.value = congregation.name;
-                option.textContent = congregation.name;
-                congregationSelect.appendChild(option);
-            });
-        }
+                    const response_en = await fetch(
+                        "outlines_en.json",
+                    );
+                    const data_en = await response_en.json();
+                    outlines_en = data_en.outlines;
 
-        // Function to populate the songs datalist
-        function populateSongsList() {
-            const songList = document.getElementById('songList');
-            
-            // Clear existing options
-            songList.innerHTML = '';
-            
-            // Add song options
-            songs.forEach(song => {
-                const option = document.createElement('option');
-                option.value = song.number;
-                const title = currentLanguage === 'vi' ? song.title_vi : song.title_en;
-                option.textContent = `${song.number.padStart(3, '0')} - ${title}`;
-                songList.appendChild(option);
-            });
-
-            // Update any existing song display if there's a selected song
-            const songNumber = document.getElementById('songNumber').value;
-            if (songNumber) {
-                const song = songs.find(s => s.number === songNumber);
-                if (song) {
-                    const songSearch = document.getElementById('songSearch');
-                    const title = currentLanguage === 'vi' ? song.title_vi : song.title_en;
-                    songSearch.value = `${song.number.padStart(3, '0')} - ${title}`;
+                    // Initialize outline lists
+                    populateOutlineLists();
+                } catch (error) {
+                    console.error(
+                        "Error loading outlines:",
+                        error,
+                    );
                 }
             }
-        }
 
-        // Function to handle outline input
-        function handleOutlineInput(value) {
-            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
-            const outline = currentOutlines.find(o => o.number.toString() === value);
-            const talkTitleInput = document.getElementById('talkTitle');
-            
-            if (outline) {
-                talkTitleInput.value = outline.title;
-            } else {
-                talkTitleInput.value = '';
+            // Function to populate outline lists
+            function populateOutlineLists() {
+                const outlineSelect = document.getElementById(
+                    "outlineSelect",
+                );
+                const nextOutlineSelect = document
+                    .getElementById("nextOutlineSelect");
+
+                // Keep the first two options
+                const outlinePlaceholder = outlineSelect
+                    .querySelector('option[value=""]');
+                const outlineCustom = outlineSelect
+                    .querySelector('option[value="custom"]');
+                const nextOutlinePlaceholder = nextOutlineSelect
+                    .querySelector('option[value=""]');
+                const nextOutlineCustom = nextOutlineSelect
+                    .querySelector('option[value="custom"]');
+
+                // Clear existing options
+                outlineSelect.innerHTML = "";
+                nextOutlineSelect.innerHTML = "";
+
+                // Add back initial options
+                if (outlinePlaceholder) {
+                    outlineSelect.appendChild(
+                        outlinePlaceholder,
+                    );
+                }
+                if (outlineCustom) {
+                    outlineSelect.appendChild(outlineCustom);
+                }
+                if (nextOutlinePlaceholder) {
+                    nextOutlineSelect.appendChild(
+                        nextOutlinePlaceholder,
+                    );
+                }
+                if (nextOutlineCustom) {
+                    nextOutlineSelect.appendChild(
+                        nextOutlineCustom,
+                    );
+                }
+
+                // Get current outlines based on language
+                const currentOutlines = currentLanguage === "vi"
+                    ? outlines
+                    : outlines_en;
+
+                // Add outline options
+                currentOutlines.forEach((outline) => {
+                    const option = document.createElement(
+                        "option",
+                    );
+                    option.value = outline.number;
+                    option.textContent = `${
+                        outline.number.padStart(3, "0")
+                    } - ${outline.title}`;
+                    outlineSelect.appendChild(
+                        option.cloneNode(true),
+                    );
+                    nextOutlineSelect.appendChild(option);
+                });
             }
-        }
 
-        // Function to handle next outline search
-        function handleNextOutlineSearch(value) {
-            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
-            const outline = currentOutlines.find(o => o.number === value);
-            if (outline) {
-                document.getElementById('nextOutlineNumber').value = outline.number;
-                document.getElementById('nextTalkTitle').value = outline.title;
+            // Function to load the congregations database
+            async function loadCongregations() {
+                try {
+                    const response = await fetch(
+                        "congregations.json",
+                    );
+                    const data = await response.json();
+                    congregations = data.congregations;
+                    populateCongregationsList();
+                } catch (error) {
+                    console.error(
+                        "Error loading congregations:",
+                        error,
+                    );
+                }
             }
-        }
 
-        // Function to handle congregation selection change
-        function handleCongregationChange(value) {
-            const congregationInput = document.getElementById('congregation');
-            
-            if (value === 'custom') {
-                congregationInput.style.display = 'block';
-                congregationInput.value = '';
-                congregationInput.focus();
-            } else {
-                congregationInput.style.display = 'none';
-                congregationInput.value = value || '';  // Handle empty selection
+            // Function to load the songs database
+            async function loadSongs() {
+                try {
+                    const response = await fetch("songs.json");
+                    const data = await response.json();
+                    songs = data.songs;
+                    populateSongsList();
+                } catch (error) {
+                    console.error(
+                        "Error loading songs:",
+                        error,
+                    );
+                }
             }
-        }
 
-        // Function to handle outline search
-        function handleOutlineSearch(value) {
-            const currentOutlines = currentLanguage === 'vi' ? outlines : outlines_en;
-            const outline = currentOutlines.find(o => o.number === value);
-            if (outline) {
-                document.getElementById('outlineNumber').value = outline.number;
-                document.getElementById('talkTitle').value = outline.title;
+            // Function to populate the congregation select
+            function populateCongregationsList() {
+                const congregationSelect = document
+                    .getElementById("congregationSelect");
+
+                // Keep the first two options (placeholder and custom)
+                const placeholder = congregationSelect
+                    .querySelector('option[value=""]');
+                const customOption = congregationSelect
+                    .querySelector('option[value="custom"]');
+
+                // Clear all options
+                congregationSelect.innerHTML = "";
+
+                // Add back placeholder and custom options
+                if (placeholder) {
+                    congregationSelect.appendChild(placeholder);
+                }
+                if (customOption) {
+                    congregationSelect.appendChild(
+                        customOption,
+                    );
+                }
+
+                // Add congregation options
+                congregations.forEach((congregation) => {
+                    const option = document.createElement(
+                        "option",
+                    );
+                    option.value = congregation.name;
+                    option.textContent = congregation.name;
+                    congregationSelect.appendChild(option);
+                });
             }
-        }
 
-        // Function to handle song search
-        function handleSongSearch(value) {
-            // Extract song number from the selection (handles both number-only and full title formats)
-            const songNumber = value.split(' - ')[0].trim().replace(/^0+/, '');
-            const song = songs.find(s => s.number === songNumber);
-            if (song) {
-                document.getElementById('songNumber').value = song.number;
-                // Update the input to show the full title in current language
-                const songSearch = document.getElementById('songSearch');
-                const title = currentLanguage === 'vi' ? song.title_vi : song.title_en;
-                songSearch.value = `${song.number.padStart(3, '0')} - ${title}`;
+            // Function to populate the songs datalist
+            function populateSongsList() {
+                const songSelect = document.getElementById(
+                    "songSelect",
+                );
+
+                // Keep the first two options
+                const songPlaceholder = songSelect
+                    .querySelector('option[value=""]');
+                const songCustom = songSelect.querySelector(
+                    'option[value="custom"]',
+                );
+
+                // Clear existing options
+                songSelect.innerHTML = "";
+
+                // Add back initial options
+                if (songPlaceholder) {
+                    songSelect.appendChild(songPlaceholder);
+                }
+                if (songCustom) {
+                    songSelect.appendChild(songCustom);
+                }
+
+                // Add song options
+                songs.forEach((song) => {
+                    const option = document.createElement(
+                        "option",
+                    );
+                    option.value = song.number;
+                    const title = currentLanguage === "vi"
+                        ? song.title_vi
+                        : song.title_en;
+                    option.textContent = `${
+                        song.number.padStart(3, "0")
+                    } - ${title}`;
+                    songSelect.appendChild(option);
+                });
             }
-        }
 
-        // Load outlines, congregations, and songs when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            loadOutlines();
-            loadCongregations();
-            loadSongs();
-        });
-    </script>
-</body>
-</html> 
+            // Function to handle outline input
+            function handleOutlineInput(value) {
+                const currentOutlines = currentLanguage === "vi"
+                    ? outlines
+                    : outlines_en;
+                const outline = currentOutlines.find((o) =>
+                    o.number.toString() === value
+                );
+                const talkTitleInput = document.getElementById(
+                    "talkTitle",
+                );
+
+                if (outline) {
+                    talkTitleInput.value = outline.title;
+                } else {
+                    talkTitleInput.value = "";
+                }
+            }
+
+            // Function to handle next outline search
+            function handleNextOutlineChange(value) {
+                const customInput = document.getElementById(
+                    "nextOutlineCustom",
+                );
+                if (value === "custom") {
+                    customInput.style.display = "block";
+                    document.getElementById("nextOutlineNumber")
+                        .value = "";
+                    document.getElementById("nextTalkTitle")
+                        .value = "";
+                    customInput.focus();
+                } else {
+                    customInput.style.display = "none";
+                    handleNextOutlineSelect(value);
+                }
+            }
+
+            function handleNextOutlineSelect(value) {
+                const currentOutlines = currentLanguage === "vi"
+                    ? outlines
+                    : outlines_en;
+                const outline = currentOutlines.find((o) =>
+                    o.number === value
+                );
+                if (outline) {
+                    document.getElementById("nextOutlineNumber")
+                        .value = outline.number;
+                    document.getElementById("nextTalkTitle")
+                        .value = outline.title;
+                } else {
+                    document.getElementById("nextOutlineNumber")
+                        .value = value;
+                    document.getElementById("nextTalkTitle")
+                        .value = "";
+                }
+            }
+
+            function handleNextOutlineCustomInput(value) {
+                document.getElementById("nextOutlineNumber")
+                    .value = value;
+            }
+
+            // Function to handle congregation selection change
+            function handleCongregationChange(value) {
+                const congregationInput = document
+                    .getElementById("congregation");
+
+                if (value === "custom") {
+                    congregationInput.style.display = "block";
+                    congregationInput.value = "";
+                    congregationInput.focus();
+                } else {
+                    congregationInput.style.display = "none";
+                    congregationInput.value = value || ""; // Handle empty selection
+                }
+            }
+
+            // Function to handle outline search
+            function handleOutlineChange(value) {
+                const customInput = document.getElementById(
+                    "outlineCustom",
+                );
+                if (value === "custom") {
+                    customInput.style.display = "block";
+                    document.getElementById("outlineNumber")
+                        .value = "";
+                    document.getElementById("talkTitle").value =
+                        "";
+                    customInput.focus();
+                } else {
+                    customInput.style.display = "none";
+                    handleOutlineSelect(value);
+                }
+            }
+
+            function handleOutlineSelect(value) {
+                const currentOutlines = currentLanguage === "vi"
+                    ? outlines
+                    : outlines_en;
+                const outline = currentOutlines.find((o) =>
+                    o.number === value
+                );
+                if (outline) {
+                    document.getElementById("outlineNumber")
+                        .value = outline.number;
+                    document.getElementById("talkTitle").value =
+                        outline.title;
+                } else {
+                    document.getElementById("outlineNumber")
+                        .value = value;
+                    document.getElementById("talkTitle").value =
+                        "";
+                }
+            }
+
+            function handleOutlineCustomInput(value) {
+                document.getElementById("outlineNumber").value =
+                    value;
+            }
+
+            // Function to handle song search
+            function handleSongChange(value) {
+                const customInput = document.getElementById(
+                    "songCustom",
+                );
+                if (value === "custom") {
+                    customInput.style.display = "block";
+                    document.getElementById("songNumber")
+                        .value = "";
+                    customInput.focus();
+                } else {
+                    customInput.style.display = "none";
+                    document.getElementById("songNumber")
+                        .value = value;
+                }
+            }
+
+            function handleSongCustomInput(value) {
+                document.getElementById("songNumber").value =
+                    value;
+            }
+
+            // Load outlines, congregations, and songs when the page loads
+            document.addEventListener(
+                "DOMContentLoaded",
+                () => {
+                    loadOutlines();
+                    loadCongregations();
+                    loadSongs();
+                },
+            );
+        </script>
+    </body>
+</html>

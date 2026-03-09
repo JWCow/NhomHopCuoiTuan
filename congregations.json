@@ -1,16 +1,34 @@
 {
   "congregations": [
     {
+      "name": "Bolsa Vietnamese - Westminster CA (USA)"
+    },
+    {
       "name": "Hội thánh Bình Hưng - Tp Hồ Chí Minh TPHCM"
     },
     {
+      "name": "Hội thánh Bình Tây - Tp Hồ Chí Minh TPHCM"
+    },
+    {
       "name": "Hội thánh Bình Thạnh - Tp Hồ Chí Minh TPHCM"
+    },
+    {
+      "name": "Hội thánh Bửu Long - Biên Hòa Đồng Nai"
     },
     {
       "name": "Hội thánh Đông Bắc - Tp Hồ Chí Minh TPHCM"
     },
     {
       "name": "Hội thánh Đông Hưng Thuận - Tp Hồ Chí Minh TPHCM"
+    },
+    {
+      "name": "Hội thánh Giang Biên - Hà Nội HN"
+    },
+    {
+      "name": "Hội thánh Hiệp Hòa - Biên Hòa Đồng Nai"
+    },
+    {
+      "name": "Hội thánh Hòa Thành - Tây Ninh"
     },
     {
       "name": "Hội thánh Hóc Môn - Tp Hồ Chí Minh TPHCM"
@@ -22,10 +40,10 @@
       "name": "Hội thánh Kỳ Hòa - Tp Hồ Chí Minh TPHCM"
     },
     {
-      "name": "Hội thánh ngôn ngữ ký hiệu Bình Thạnh - Tp Hồ Chí Minh TPHCM"
+      "name": "Hội thánh Long Biên - Hà Nội HN"
     },
     {
-      "name": "Hội thánh Ngôn ngữ ký hiệu Sài Gòn - Tp Hồ Chí Minh TPHCM"
+      "name": "Hội thánh Nhà Bè - Tp Hồ Chí Minh TPHCM"
     },
     {
       "name": "Hội thánh Phong Phú - Tp Hồ Chí Minh TPHCM"
@@ -34,7 +52,16 @@
       "name": "Hội thánh Sơn Kỳ - Tp Hồ Chí Minh TPHCM"
     },
     {
+      "name": "Hội thánh Tắc Vân - Cà Mau"
+    },
+    {
       "name": "Hội thánh Tân Chánh Hiệp - Tp Hồ Chí Minh TPHCM"
+    },
+    {
+      "name": "Hội thánh Tân Hiệp - Biên Hòa Đồng Nai"
+    },
+    {
+      "name": "Hội thánh Tân Phong - Tp Hồ Chí Minh TPHCM"
     },
     {
       "name": "Hội thánh Tân Tạo - Tp Hồ Chí Minh TPHCM"
@@ -43,10 +70,22 @@
       "name": "Hội thánh Tân Thành - Tp Hồ Chí Minh TPHCM"
     },
     {
+      "name": "Hội thánh Thạnh Mỹ Lợi - Tp Hồ Chí Minh TPHCM"
+    },
+    {
       "name": "Hội thánh Thủ Đức - Tp Hồ Chí Minh TPHCM"
     },
     {
+      "name": "Hội thánh Trảng Bàng - Tây Ninh"
+    },
+    {
       "name": "Hội thánh Trung Tâm - Tp Hồ Chí Minh TPHCM"
+    },
+    {
+      "name": "Hội thánh Vĩnh Ngọc - Nha Trang Khánh Hòa"
+    },
+    {
+      "name": "Hội thánh Xuân Phú - Xuân Lộc Đồng Nai"
     }
   ]
-} 
+}
